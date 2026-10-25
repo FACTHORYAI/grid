@@ -1,5 +1,25 @@
 # Asset attribution
 
+<!-- facthory:begin: Facthory's own files, written by facthory/icons/render.py; see facthory/README.md -->
+| Facthory asset | Author | Source | Licence |
+|---|---|---|---|
+| `facthory/icons/grid.svg` | Bandpey GmbH | original artwork | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/facthorygrid-1024.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/facthorygrid-macos-512.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/facthorygrid.icns` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/facthorygrid.ico` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/facthorygrid.svg` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/128x128/apps/com.facthory.grid.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/16x16/apps/com.facthory.grid.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/24x24/apps/com.facthory.grid.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/256x256/apps/com.facthory.grid.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/32x32/apps/com.facthory.grid.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/48x48/apps/com.facthory.grid.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/512x512/apps/com.facthory.grid.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/64x64/apps/com.facthory.grid.png` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+| `facthory/icons/app-icon/hicolor/scalable/apps/com.facthory.grid.svg` | Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT OR Apache-2.0 |
+<!-- facthory:end -->
+
 Every non-code asset in this repository (images, icons, fonts, example files, presets) is listed here with its author, source and licence. `cargo xtask assets` (part of `cargo xtask ci`) fails if an asset file is missing from this table.
 
 **Policy (mandatory):** GridCraft contains **no Microsoft, Adobe, Avid or Autodesk iconography, images, artwork, fonts, templates, themes, table styles or sample files**. Every asset is original work by GridCraft contributors or third-party material under an open licence (OSI open source, public domain / CC0, or Creative Commons that allows redistribution). Screenshots of Microsoft software are never committed. Font files are not added here: shared fonts live in [storytold/craft-fonts](https://github.com/storytold/craft-fonts), an optional build input (`CRAFT_FONTS_DIR`). The one exception is the ArtCraft brand files in `docs/brand/`: ArtCraft trademarks, not open source, used under `docs/brand/LICENSE-brand.txt`.

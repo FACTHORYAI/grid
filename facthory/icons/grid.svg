@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Facthory Grid app icon. Original artwork by Bandpey GmbH, MIT OR Apache-2.0. House style
+       shared with Facthory Page and Deck: slate tile, paper shape, one amber accent. -->
+  <rect width="512" height="512" rx="112" fill="#1E2A38"/>
+  <rect x="96" y="112" width="320" height="288" rx="20" fill="#F4F1EA"/>
+  <path d="M96 132 A20 20 0 0 1 116 112 H396 A20 20 0 0 1 416 132 V184 H96 Z" fill="#F2B33D"/>
+  <g stroke="#1E2A38" stroke-width="12">
+    <line x1="203" y1="112" x2="203" y2="400"/>
+    <line x1="309" y1="112" x2="309" y2="400"/>
+    <line x1="96" y1="184" x2="416" y2="184"/>
+    <line x1="96" y1="256" x2="416" y2="256"/>
+    <line x1="96" y1="328" x2="416" y2="328"/>
+  </g>
+</svg>
