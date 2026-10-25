@@ -1,0 +1,1404 @@
+# W6 fidelity corpus for Grid (.xlsx): draft manifest, generated 2026-10-25
+# Every file is pinned by URL and SHA-256 and is NOT committed: fetch, verify, cache (bucket).
+# licence/licence_url: git sources: the licence file at the pinned commit (read); public-sector entries: see their source/note for where the licence was read.
+# producer: docProps/app.xml Application + AppVersion as read from the file.
+# tier: smoke = 20 early picks under 1.5 MB with publish_renders = yes (cover most features; for the gate), full = the rest.
+# producer is checked against traces only the Office apps write (Word w:rsids, Excel rupBuild, PowerPoint p14 or a 2007/2010 build).
+# publish_renders: yes = renders/screenshots may go into public test reports; review = check content first.
+
+schema = "facthory-corpus/1"
+app = "grid"
+format = "xlsx"
+
+[[file]]
+id = "xlsx-poi-000"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/spreadsheet/ConditionalFormattingSamples.xlsx"
+sha256 = "8dfa997a642c00a1da8c0750c371f204553a98c537ca046028b052f9b424a074"
+size = 654688
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/spreadsheet/ConditionalFormattingSamples.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["color-scales", "conditional-formatting", "custom-numfmts", "data-bars", "data-validation", "drawings", "icon-sets", "images", "merged-cells", "tables"]
+stats = ["formulas:352", "sheets:18"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-poi-001"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/integration/stress024.xlsx"
+sha256 = "1426b310329954a89df61a05668d25911c4b0e438974cb99e2a08818eb25b3a4"
+size = 773960
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/integration/stress024.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = ["charts", "chartsheets", "comments", "conditional-formatting", "custom-numfmts", "defined-names", "drawings", "external-links", "images", "merged-cells"]
+stats = ["formulas:444", "sheets:3"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-docx4j-002"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/cr022-slicers-timelines.xlsx"
+sha256 = "784523bacd47b8b9bec09e43fb39a4bd781ce6f1f0775255c8a44d3b2d437eb5"
+size = 27077
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/cr022-slicers-timelines.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["defined-names", "drawings", "pivot-tables", "slicers", "sparklines", "tables"]
+stats = ["sheets:3"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-poi-003"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/spreadsheet/mv-calculator-final-2-20-2013.xlsm"
+sha256 = "7e7121abc05437469fac86612ee8f3e3118a0ecd5f93f95fe984f4a68d01d73d"
+size = 603138
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/spreadsheet/mv-calculator-final-2-20-2013.xlsm"
+producer = "Microsoft Excel 14.0300"
+features = ["autofilter", "custom-numfmts", "data-validation", "defined-names", "drawings", "freeze-panes", "macros", "merged-cells"]
+stats = ["formulas:3", "sheets:8"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-oxsdk-004"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestFiles/basicspreadsheet.xlsx"
+sha256 = "13221d4d2569b6f8822fc17d9a1720a272628e914dc8025465285059e4b97d92"
+size = 26610
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestFiles/basicspreadsheet.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["charts", "cjk", "color-scales", "conditional-formatting", "data-bars", "drawings", "merged-cells", "pivot-tables", "tables"]
+stats = ["sheets:3"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-poi-005"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/spreadsheet/right-to-left.xlsx"
+sha256 = "419ef388b20501009a8c546f20ca0371abac168389b556ba47c52f48f0e7f3b0"
+size = 14478
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/spreadsheet/right-to-left.xlsx"
+producer = "Microsoft Excel Online 16.0300"
+features = ["comments", "custom-numfmts", "drawings", "rtl-script", "threaded-comments"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-poi-006"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/integration/stress002.xlsx"
+sha256 = "eb94a2e12821f8876d506b907f9f0230e3af1d6dfffe6e3af9748fd73fd4a838"
+size = 374843
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/integration/stress002.xlsx"
+producer = "Microsoft Macintosh Excel 15.0300"
+features = ["comments", "custom-numfmts", "data-validation", "defined-names", "drawings", "images", "macros", "merged-cells"]
+stats = ["formulas:620", "sheets:14"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-closedxml-007"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/TryToLoad/DrawingSizeInPx.xlsx"
+sha256 = "8d384026913cf12612700cc235fbbb8feb37d2b965216245027d7f6e6ff36e81"
+size = 981840
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/TryToLoad/DrawingSizeInPx.xlsx"
+producer = "Microsoft Macintosh Excel"
+features = ["comments", "conditional-formatting", "custom-numfmts", "data-validation", "defined-names", "drawings", "external-links", "freeze-panes", "images", "merged-cells"]
+stats = ["formulas:8", "sheets:16"]
+tier = "full"
+publish_renders = "review"
+note = "user-attached bug-tracker file: licence asserted by the project, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-exceljs-008"
+url = "https://raw.githubusercontent.com/exceljs/exceljs/5bed18b45e824f409b08456b59b87430ded023ab/spec/integration/data/test-issue-880.xlsx"
+sha256 = "657f5ae4bd1085d7c33ec60acaafa141d10e834f73796e4680969a1c42e34053"
+size = 267677
+licence = "MIT"
+licence_url = "https://github.com/exceljs/exceljs/blob/5bed18b45e824f409b08456b59b87430ded023ab/LICENSE"
+source = "exceljs/exceljs@5bed18b45e82:spec/integration/data/test-issue-880.xlsx"
+producer = "Microsoft Macintosh Excel 16.0300"
+features = ["comments", "conditional-formatting", "custom-numfmts", "defined-names", "drawings", "images", "merged-cells"]
+stats = ["formulas:93", "sheets:5"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-009"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/Connection.xlsx"
+sha256 = "32ee0a7c68f595c1642419e9535b306a6d938c2f273757760fe5f2e779fbb558"
+size = 66427
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/Connection.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["conditional-formatting", "dynamic-arrays", "icon-sets"]
+stats = ["formulas:1166", "sheets:3"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-poi-010"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/spreadsheet/57181.xlsm"
+sha256 = "2cf7459faa9d15c1deef4c410fc05142c4f57ebee622668e2526d7b3e34e08fa"
+size = 334727
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/spreadsheet/57181.xlsm"
+producer = "Microsoft Excel 14.0300"
+features = ["array-formulas", "charts", "chartsheets", "comments", "custom-numfmts", "defined-names", "drawings", "images", "macros", "merged-cells"]
+stats = ["formulas:3087", "sheets:7"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-closedxml-011"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/TryToLoad/TemplateWithTableSourcePivotTables.xlsx"
+sha256 = "c61200baa55082139a1c9e5ccc159c100b708cd2bc5d5d1c2157fc018d629eaf"
+size = 235954
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/TryToLoad/TemplateWithTableSourcePivotTables.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = ["array-formulas", "comments", "conditional-formatting", "custom-numfmts", "data-validation", "defined-names", "drawings", "merged-cells", "pivot-tables", "tables"]
+stats = ["formulas:1450", "sheets:28"]
+tier = "full"
+publish_renders = "review"
+note = "user-attached bug-tracker file: licence asserted by the project, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-pbisamples-012"
+url = "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/e2f326b09bb7df6890fff0ded9813a0d73677cd6/Monthly%20Desktop%20Blog%20Samples/2019/customerfeedback.xlsx"
+sha256 = "76ab40c7b772976117f963d79034096c8ff96429f244c1bc6162a590b306b319"
+size = 7848484
+licence = "MIT"
+licence_url = "https://github.com/microsoft/powerbi-desktop-samples/blob/e2f326b09bb7df6890fff0ded9813a0d73677cd6/LICENSE"
+source = "microsoft/powerbi-desktop-samples@e2f326b09bb7:Monthly Desktop Blog Samples/2019/customerfeedback.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["autofilter", "defined-names"]
+stats = ["formulas:45224", "sheets:7"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-poi-013"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/spreadsheet/CVLKRA-KYC_Download_File_Structure_V3.1.xlsx"
+sha256 = "a6a7bf557df8048108502973ecedc31d96f27d09ac166eedeae32fc96c13e8db"
+size = 204480
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/spreadsheet/CVLKRA-KYC_Download_File_Structure_V3.1.xlsx"
+producer = "Microsoft Excel"
+features = ["custom-numfmts", "defined-names", "merged-cells"]
+stats = ["formulas:103", "sheets:30"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-poi-014"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/spreadsheet/NumberFormatApproxTests.xlsx"
+sha256 = "0ed1e83006006bde250044e4f776238b11baea158ef27cd4b95be2363b98004a"
+size = 58079
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/spreadsheet/NumberFormatApproxTests.xlsx"
+producer = "Microsoft Macintosh Excel 12.0000"
+features = ["custom-numfmts", "freeze-panes"]
+stats = ["formulas:249", "sheets:2"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-poi-015"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/spreadsheet/StructuredRefs-lots-with-lookups.xlsx"
+sha256 = "09af82b9abae2ffcff04777b69cbb23dfd15df788426153bcfa1e9359c3552be"
+size = 325446
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/spreadsheet/StructuredRefs-lots-with-lookups.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["charts", "conditional-formatting", "custom-numfmts", "data-validation", "defined-names", "drawings", "external-links", "merged-cells", "tables"]
+stats = ["formulas:7274", "sheets:5"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-oxsdk-016"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/OlapPivotA3.xlsx"
+sha256 = "fdb22077a8b530f012cd4b87161312094f4bfd6cee0c710d4d8b60a921663a32"
+size = 381906
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/OlapPivotA3.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["charts", "color-scales", "conditional-formatting", "data-bars", "drawings", "icon-sets", "pivot-tables"]
+stats = ["sheets:3"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-docx4j-017"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/loadAndSave.xlsx"
+sha256 = "8021ec008285df83aba6af7aa281b34f0f401ad6c3021ff2fb707b350d2652f3"
+size = 25928
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/loadAndSave.xlsx"
+producer = "Microsoft Macintosh Excel 16.0300"
+features = ["charts", "comments", "custom-numfmts", "drawings", "images", "tables", "threaded-comments"]
+stats = ["formulas:1", "sheets:1"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-poi-018"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/spreadsheet/NewStyleConditionalFormattings.xlsx"
+sha256 = "1e97af3b87636bd0a759c25439a21b928c2ff3b9a3c57ca49ae24cb1ccdb7e2f"
+size = 13378
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/spreadsheet/NewStyleConditionalFormattings.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["color-scales", "conditional-formatting", "data-bars", "icon-sets"]
+stats = ["formulas:304", "sheets:1"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-oxsdk-019"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/PerformanceArabic.xlsx"
+sha256 = "990e766f580c0669b9492f700ff066aa2b679faf0b02b8a5f5161b5af5506e2a"
+size = 315773
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/PerformanceArabic.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["custom-numfmts", "rtl-script"]
+stats = ["formulas:7504", "sheets:1"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-020"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Sparklines/SourceDataFormulas/ExternalReference-input.xlsx"
+sha256 = "5b1101cf2e493dbac74ef4643bcfc64346db1c3f6d28c569acd637c58eebb5a2"
+size = 13700
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Sparklines/SourceDataFormulas/ExternalReference-input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["custom-numfmts", "data-validation", "defined-names", "external-links", "sparklines"]
+stats = ["formulas:1", "sheets:2"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-exceljs-021"
+url = "https://raw.githubusercontent.com/exceljs/exceljs/5bed18b45e824f409b08456b59b87430ded023ab/spec/integration/data/test-issue-877.xlsx"
+sha256 = "f476fa6c6a598a3bcde37bd2b7fa7f1e29715d48e6ad5f51c9330c669c837980"
+size = 148118
+licence = "MIT"
+licence_url = "https://github.com/exceljs/exceljs/blob/5bed18b45e824f409b08456b59b87430ded023ab/LICENSE"
+source = "exceljs/exceljs@5bed18b45e82:spec/integration/data/test-issue-877.xlsx"
+producer = "Microsoft Macintosh Excel 16.0300"
+features = ["conditional-formatting", "custom-numfmts", "defined-names", "drawings", "images", "merged-cells"]
+stats = ["formulas:89", "sheets:5"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-022"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/SheetData.xlsx"
+sha256 = "808a6b222d36a27f6e4b027300b7f5b8f8d864ac598e6ecf95bd0d01ea00ef2e"
+size = 51278
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/SheetData.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["dynamic-arrays"]
+stats = ["formulas:863", "sheets:3"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-docx4j-023"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-chart-render/src/test/resources/charts/waterfall.xlsx"
+sha256 = "90919280b26ac7a184a8cc9c692c1b5d3791fc6308d08081bdb87de15a38d178"
+size = 18683
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-chart-render/src/test/resources/charts/waterfall.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["chartex", "charts", "defined-names", "drawings", "tables"]
+stats = ["sheets:1"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxpt-024"
+url = "https://raw.githubusercontent.com/OfficeDev/Open-Xml-PowerTools/5881422a881f6ccefce2b9801b5dc6a753670d6e/TestFiles/Spreadsheet.xlsx"
+sha256 = "123f4a748146974801eeca5d2c6c9f2b8d2dd6fbf3d5552dc810b0da762e0039"
+size = 56374
+licence = "MIT"
+licence_url = "https://github.com/OfficeDev/Open-Xml-PowerTools/blob/5881422a881f6ccefce2b9801b5dc6a753670d6e/LICENSE"
+source = "OfficeDev/Open-Xml-PowerTools@5881422a881f:TestFiles/Spreadsheet.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = ["charts", "comments", "drawings", "images", "tables"]
+stats = ["formulas:2", "sheets:2"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-025"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/Robustness/OFCAT/00a5888d-6d63-4643-acbb-35c6f317cd75.xlsx"
+sha256 = "0bfa534018bcb1290fd70f3b0beb5b6d2e8e86fb709a4abe5b324e84567ea517"
+size = 15654
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/Robustness/OFCAT/00a5888d-6d63-4643-acbb-35c6f317cd75.xlsx"
+producer = "Microsoft Macintosh Excel 15.0300"
+features = ["charts", "cjk", "drawings"]
+stats = ["sheets:4"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-pbisamples-026"
+url = "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/e2f326b09bb7df6890fff0ded9813a0d73677cd6/powerbi-service-samples/Sales%20and%20Marketing%20Sample-no-PV.xlsx"
+sha256 = "ce2ca572d76d2725cf65da3edb08486a268b3548ef7ebaf5348b00e415f4ebcc"
+size = 8525431
+licence = "MIT"
+licence_url = "https://github.com/microsoft/powerbi-desktop-samples/blob/e2f326b09bb7df6890fff0ded9813a0d73677cd6/LICENSE"
+source = "microsoft/powerbi-desktop-samples@e2f326b09bb7:powerbi-service-samples/Sales and Marketing Sample-no-PV.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["charts", "custom-numfmts", "drawings", "dynamic-arrays", "images", "pivot-tables"]
+stats = ["sheets:5"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-027"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/asSources/spreadsheet/Styles.xlsx"
+sha256 = "a1ca7e60befe2ca550cd4729d68028de2a96aa163574892ed6a0890595b26468"
+size = 19626
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/asSources/spreadsheet/Styles.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["charts", "color-scales", "conditional-formatting", "data-bars", "drawings", "images", "merged-cells", "pivot-tables", "tables"]
+stats = ["sheets:3"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-docx4j-028"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-digsig/src/test/resources/goldens/rich.xlsx"
+sha256 = "64b06fb19985ba11d3071d289a5d504a8b3105d4200f7cfde5feb84744572688"
+size = 30524
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-digsig/src/test/resources/goldens/rich.xlsx"
+producer = "Microsoft Macintosh Excel 16.0300"
+features = ["charts", "comments", "custom-numfmts", "drawings", "images", "tables", "threaded-comments"]
+stats = ["formulas:1", "sheets:1"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-029"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Excel/Photo%20Formats%20-%20CGM-O12-XL-Pictures.xlsx"
+sha256 = "22f05499029ac48a333d23ea23fad06442374fd2c0f921d63ac9316f2d15cc76"
+size = 151686
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Excel/Photo Formats - CGM-O12-XL-Pictures.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["charts", "drawings", "images", "rtl-script"]
+stats = ["sheets:9"]
+tier = "smoke"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-oxsdk-030"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/bvt/PerformanceEng.xlsx"
+sha256 = "230f7f9fd5139153d9b6dd7af64645cd54d151920396448cd009bf50db4cb42b"
+size = 310688
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/bvt/PerformanceEng.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["custom-numfmts"]
+stats = ["formulas:7504", "sheets:1"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxpt-031"
+url = "https://raw.githubusercontent.com/OfficeDev/Open-Xml-PowerTools/5881422a881f6ccefce2b9801b5dc6a753670d6e/OpenXmlPowerToolsExamples/PivotTables01/QuarterlySales.xlsx"
+sha256 = "0f81f40870df89c2b001eea4139bedd41d24fdf541fb8c3e7ef9b24fe25571f7"
+size = 12396
+licence = "MIT"
+licence_url = "https://github.com/OfficeDev/Open-Xml-PowerTools/blob/5881422a881f6ccefce2b9801b5dc6a753670d6e/LICENSE"
+source = "OfficeDev/Open-Xml-PowerTools@5881422a881f:OpenXmlPowerToolsExamples/PivotTables01/QuarterlySales.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["custom-numfmts", "defined-names", "pivot-tables", "rtl-script"]
+stats = ["sheets:2"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-docx4j-032"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/charts/cr047-pareto-excel-deleted.xlsx"
+sha256 = "c781d5207b122c34b274c3940909806adca2af841e61ee5a27c4078030e6691d"
+size = 14756
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/charts/cr047-pareto-excel-deleted.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["chartex", "charts", "defined-names", "drawings", "tables"]
+stats = ["sheets:1"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-033"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Cubes/CubeFromRange-Input.xlsx"
+sha256 = "042ab4453b5a5829130853adf74106210cd7646071ff370a3a0fafae96579de3"
+size = 86320
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Cubes/CubeFromRange-Input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["defined-names", "dynamic-arrays"]
+stats = ["formulas:14", "sheets:2"]
+tier = "smoke"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-exceljs-034"
+url = "https://raw.githubusercontent.com/exceljs/exceljs/5bed18b45e824f409b08456b59b87430ded023ab/spec/integration/data/test-issue-1842.xlsx"
+sha256 = "efb97eb9ce8f5636c43aeebe70a4230b64a3e8f9e1d631647d5b2d2ea1d204f6"
+size = 8176
+licence = "MIT"
+licence_url = "https://github.com/exceljs/exceljs/blob/5bed18b45e824f409b08456b59b87430ded023ab/LICENSE"
+source = "exceljs/exceljs@5bed18b45e82:spec/integration/data/test-issue-1842.xlsx"
+producer = "Microsoft Excel Online 16.0300"
+features = ["data-validation"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-035"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/O12%20templates/PortfolioAnalysis_TP10073883.xltx"
+sha256 = "423bc759de6aa5accd492b24aadefa7495430dcd9a2497c7d312c00d769a97ec"
+size = 24839
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/O12 templates/PortfolioAnalysis_TP10073883.xltx"
+producer = "Microsoft Excel 12.0000"
+features = ["charts", "chartsheets", "conditional-formatting", "custom-numfmts", "data-bars", "defined-names", "drawings", "freeze-panes", "icon-sets", "images", "merged-cells", "tables"]
+stats = ["formulas:21", "sheets:1"]
+tier = "full"
+publish_renders = "review"
+note = "Office.com template (TP id) shipped in Microsoft's MIT-licensed test assets: test input only, never a source for product templates, themes or art; may contain stock imagery: review before publishing renders"
+
+[[file]]
+id = "xlsx-closedxml-036"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/PivotTable/Sources/PivotTable-AllSources-input.xlsx"
+sha256 = "0dfd174fbe668c27db490c5dfc1e7d8df8d075211424f5bd0b393bdc0a8ed73a"
+size = 43508
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/PivotTable/Sources/PivotTable-AllSources-input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["defined-names", "pivot-tables", "tables"]
+stats = ["formulas:1", "sheets:12"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-037"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Formulas/DataTableFormula-Excel-Input.xlsx"
+sha256 = "8c881dcc60ee13d287292d23fd878b82e84517d72bb46443e5755c59278f9503"
+size = 17584
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Formulas/DataTableFormula-Excel-Input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = []
+stats = ["formulas:18", "sheets:9"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxpt-038"
+url = "https://raw.githubusercontent.com/OfficeDev/Open-Xml-PowerTools/5881422a881f6ccefce2b9801b5dc6a753670d6e/OpenXmlPowerToolsExamples/PivotTables01/QuarterlyUnitSales.xlsx"
+sha256 = "dbee37d6421a347f9dd175333d9bc1e9fc740db51f4764fbece9b9267835e356"
+size = 11430
+licence = "MIT"
+licence_url = "https://github.com/OfficeDev/Open-Xml-PowerTools/blob/5881422a881f6ccefce2b9801b5dc6a753670d6e/LICENSE"
+source = "OfficeDev/Open-Xml-PowerTools@5881422a881f:OpenXmlPowerToolsExamples/PivotTables01/QuarterlyUnitSales.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["custom-numfmts", "defined-names"]
+stats = ["formulas:70", "sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-pbisamples-039"
+url = "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/e2f326b09bb7df6890fff0ded9813a0d73677cd6/powerbi-service-samples/Human%20Resources%20Sample-no-PV.xlsx"
+sha256 = "d837a4af057b450510ca3d1b00ce1ecc6ced32a18255c99e4b10b5aea4f1f1aa"
+size = 10377251
+licence = "MIT"
+licence_url = "https://github.com/microsoft/powerbi-desktop-samples/blob/e2f326b09bb7df6890fff0ded9813a0d73677cd6/LICENSE"
+source = "microsoft/powerbi-desktop-samples@e2f326b09bb7:powerbi-service-samples/Human Resources Sample-no-PV.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["custom-numfmts", "drawings", "dynamic-arrays", "images", "pivot-tables"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-docx4j-040"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/anon/strict-invoice.xlsx"
+sha256 = "7c9ebf72eae56f841d3dbb86539df351f89328303bd83a4fae499051ec0e0802"
+size = 40265
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/anon/strict-invoice.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["custom-numfmts", "data-validation", "defined-names", "drawings", "images", "merged-cells", "tables"]
+stats = ["formulas:13", "sheets:1"]
+tier = "full"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-oxsdk-041"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Excel/filter_type.xlsx"
+sha256 = "9e32e6f06bcec398a6b1d89d5564b8b2ff7c3ef93c61ec0ab3da6497e46bf4b1"
+size = 70603
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Excel/filter_type.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["custom-numfmts", "pivot-tables", "rtl-script"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-oxsdk-042"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestFiles/Complex01.xlsx"
+sha256 = "86e256876dc2b6f4ed15cc0ffaafb4c5161b46294a19f2fe47fd6e5974906190"
+size = 116672
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestFiles/Complex01.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = ["charts", "comments", "drawings", "images", "tables"]
+stats = ["formulas:1", "sheets:2"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-docx4j-043"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/cr022-sparklines.xlsx"
+sha256 = "c360927da157a7dcf60a7bccec16d5e910d995bcc1b84161bfdc8ccfd1b04c4a"
+size = 9025
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/cr022-sparklines.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["sparklines"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-044"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/O12%20templates/ProductCompetitiveAnalysis_TP10186503.xltx"
+sha256 = "c5be067e2e549b7f35641c14a201196e3b342f58840e70983a82f075058a50fe"
+size = 30474
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/O12 templates/ProductCompetitiveAnalysis_TP10186503.xltx"
+producer = "Microsoft Excel 12.0000"
+features = ["charts", "chartsheets", "custom-numfmts", "data-validation", "defined-names", "drawings", "freeze-panes", "merged-cells"]
+stats = ["formulas:64", "sheets:6"]
+tier = "full"
+publish_renders = "review"
+note = "Office.com template (TP id) shipped in Microsoft's MIT-licensed test assets: test input only, never a source for product templates, themes or art; may contain stock imagery: review before publishing renders"
+
+[[file]]
+id = "xlsx-oxsdk-045"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Excel/Hyperlinks%20on%20OArt%20Objects-O12-XL-Hyperlinks.xlsx"
+sha256 = "4ddd4a4b3fbc58215be3e95723ce19d3bcd575a27ae26cb6f6f12ad166ffe4eb"
+size = 90172
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Excel/Hyperlinks on OArt Objects-O12-XL-Hyperlinks.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["drawings", "images", "rtl-script"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-docx4j-046"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/charts/chartex/manual-bincount-6.xlsx"
+sha256 = "6a6216491502dfdab3be36f5d98eda72623fa4a5c62188a2cd39ab3352b9c4ea"
+size = 13702
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/charts/chartex/manual-bincount-6.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["chartex", "charts", "defined-names", "drawings"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-047"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/Robustness/OFCAT/00bd6e64-896c-4ad0-980c-e7abdd4b0a52.xlsx"
+sha256 = "f150a4e5205e505a630a526b04135be5736b8569668cac6033aa19137a9f61bd"
+size = 18033
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/Robustness/OFCAT/00bd6e64-896c-4ad0-980c-e7abdd4b0a52.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["conditional-formatting", "data-bars", "icon-sets", "pivot-tables", "tables"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-docx4j-048"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-digsig/src/test/resources/goldens/macro.xlsm"
+sha256 = "1d781a8f6050826b060373adde6856decda192deb0536b1123068ada2870aa2c"
+size = 17578
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-digsig/src/test/resources/goldens/macro.xlsm"
+producer = "Microsoft Excel 14.0300"
+features = ["macros"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-exceljs-049"
+url = "https://raw.githubusercontent.com/exceljs/exceljs/5bed18b45e824f409b08456b59b87430ded023ab/spec/integration/data/test-pr-1204.xlsx"
+sha256 = "ba7d3d609b57d8b7398e12409f7eb3717daea2a29708098a72561d6f92804603"
+size = 10727
+licence = "MIT"
+licence_url = "https://github.com/exceljs/exceljs/blob/5bed18b45e824f409b08456b59b87430ded023ab/LICENSE"
+source = "exceljs/exceljs@5bed18b45e82:spec/integration/data/test-pr-1204.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = ["data-validation", "merged-cells"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-050"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/O12%20templates/LoanAmortization_TP10073881.xltx"
+sha256 = "93bffca67b888ea2c05cec02c24b5c520f6f2c0564e9cdd7a586adfc16f05899"
+size = 63071
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/O12 templates/LoanAmortization_TP10073881.xltx"
+producer = "Microsoft Excel 12.0000"
+features = ["conditional-formatting", "custom-numfmts", "data-validation", "defined-names", "freeze-panes", "merged-cells"]
+stats = ["formulas:4805", "sheets:1"]
+tier = "full"
+publish_renders = "review"
+note = "Office.com template (TP id) shipped in Microsoft's MIT-licensed test assets: test input only, never a source for product templates, themes or art; may contain stock imagery: review before publishing renders"
+
+[[file]]
+id = "xlsx-closedxml-051"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/PivotTableReferenceFiles/ChartsheetAndPivotTable.xlsx"
+sha256 = "fe9806c2e07de61799e4d92928f818b0bf4a5a5a4de74bd9f342d92d1b0663d6"
+size = 18570
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/PivotTableReferenceFiles/ChartsheetAndPivotTable.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["charts", "chartsheets", "drawings", "pivot-tables"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-052"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/ExternalLinks/WorkbookWithExternalLink.xlsx"
+sha256 = "c83865c79e2fb92b98c9859f5952a2f7897d9022e0d5db7e278087a4b9c03ee0"
+size = 9618
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/ExternalLinks/WorkbookWithExternalLink.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = ["external-links"]
+stats = ["formulas:1", "sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-053"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/AutoFilter/AutoFilterWithThousandsSeparator.xlsx"
+sha256 = "cb897f20b1a893bbced0a530697d338a6a6be6e8793213ebb9806890ce1c8524"
+size = 8969
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/AutoFilter/AutoFilterWithThousandsSeparator.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["autofilter", "defined-names"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-054"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/O12%20templates/StatusReportforProjectSponsors_TP10204408.xltx"
+sha256 = "e1336a859c1f78d4046ae6b32a4f947f02738eaaff27b21364433d76ef1443ef"
+size = 68230
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/v2FxTestFiles/spreadsheet/O12 templates/StatusReportforProjectSponsors_TP10204408.xltx"
+producer = "Microsoft Excel 12.0000"
+features = ["charts", "conditional-formatting", "custom-numfmts", "data-validation", "defined-names", "drawings", "merged-cells", "pivot-tables"]
+stats = ["formulas:358", "sheets:6"]
+tier = "full"
+publish_renders = "review"
+note = "Office.com template (TP id) shipped in Microsoft's MIT-licensed test assets: test input only, never a source for product templates, themes or art; may contain stock imagery: review before publishing renders"
+
+[[file]]
+id = "xlsx-oxpt-055"
+url = "https://raw.githubusercontent.com/OfficeDev/Open-Xml-PowerTools/5881422a881f6ccefce2b9801b5dc6a753670d6e/OpenXmlPowerToolsExamples/MetricsGetter01/Tables.xlsx"
+sha256 = "4fad1b86c02f243111a4164f2bdecc720236ea52a62d824c0de43a6163e63eb7"
+size = 11685
+licence = "MIT"
+licence_url = "https://github.com/OfficeDev/Open-Xml-PowerTools/blob/5881422a881f6ccefce2b9801b5dc6a753670d6e/LICENSE"
+source = "OfficeDev/Open-Xml-PowerTools@5881422a881f:OpenXmlPowerToolsExamples/MetricsGetter01/Tables.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = ["tables"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-poi-056"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/openxml4j/64473.xlsx"
+sha256 = "03f4f012c8d140cf66fb056be8356c618e25eb02edf69cb0160249343335b1fb"
+size = 12044
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/openxml4j/64473.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["array-formulas", "custom-numfmts", "defined-names", "dynamic-arrays", "external-links", "freeze-panes"]
+stats = ["formulas:4", "sheets:2"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-oxsdk-057"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestFiles/extlst.xlsx"
+sha256 = "662aecb01feae58b9e6f6f99747dfbf05b10625873d28870169182b417a9e5fc"
+size = 14845
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestFiles/extlst.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["charts", "drawings", "pivot-tables"]
+stats = ["sheets:4"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-058"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/RichText/kanji-with-new-line-input.xlsx"
+sha256 = "8240287e77fd241de92415f0e58b0ad9acffd2c0647bf22d8c20181756b5567b"
+size = 9141
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/RichText/kanji-with-new-line-input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["cjk"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-059"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/PivotTableReferenceFiles/PivotMixedDataTypesInTableColumn/input.xlsx"
+sha256 = "f66fa8901b82fe311a40e7b02881e80cb80410ea8502da4b68658de2529f7be3"
+size = 34129
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/PivotTableReferenceFiles/PivotMixedDataTypesInTableColumn/input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["pivot-tables", "tables"]
+stats = ["sheets:6"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-pbisamples-060"
+url = "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/e2f326b09bb7df6890fff0ded9813a0d73677cd6/powerbi-service-samples/Opportunity%20Tracking%20Sample%20no%20PV.xlsx"
+sha256 = "16e924bc6ca72b89e4b1dbb09516778cca6c8cce8652d3e79ed166313b62ec7c"
+size = 700910
+licence = "MIT"
+licence_url = "https://github.com/microsoft/powerbi-desktop-samples/blob/e2f326b09bb7df6890fff0ded9813a0d73677cd6/LICENSE"
+source = "microsoft/powerbi-desktop-samples@e2f326b09bb7:powerbi-service-samples/Opportunity Tracking Sample no PV.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["custom-numfmts", "drawings", "images", "pivot-tables"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-061"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestFiles/MCExecl.xlsx"
+sha256 = "7a556eb76d8ddcd21f408310788c08309489f026c5b5fdbcf56ff14eced6837b"
+size = 6949
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestFiles/MCExecl.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["rtl-script"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-docx4j-062"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/cr022-data-model.xlsx"
+sha256 = "79784047b8b0f20a0cb1a1bfd0a438894f5bb19222db161a0decbc0483c9d50c"
+size = 245046
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/cr022-data-model.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["defined-names", "pivot-tables", "tables"]
+stats = ["sheets:4"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-063"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Graphics/Axis%20Title-O12-XL-ChartProperties.xlsx"
+sha256 = "e51ce8f55b1a001f0d34bb654937f2080c34ddc8e3f04703f56549955e7e9c10"
+size = 31742
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Graphics/Axis Title-O12-XL-ChartProperties.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["charts", "drawings", "images"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-poi-064"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/openxml4j/ExcelWithHyperlinks.xlsx"
+sha256 = "9cf5ac25bbe59ee30d954983e7803a854909be6d53e184933d4c47e8f6b248bb"
+size = 11409
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/openxml4j/ExcelWithHyperlinks.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["comments", "defined-names", "drawings"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-docx4j-065"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/anon/pivot.xlsm"
+sha256 = "6e89016ef437a359415d201acdd2a6f53d2cb8dc0998808c04ac962d3a9331ab"
+size = 15096
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/anon/pivot.xlsm"
+producer = "Microsoft Excel 12.0000"
+features = ["charts", "drawings", "pivot-tables"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-066"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Excel/2D%20Rotation-O12-XL-OartEffects.xlsx"
+sha256 = "0e0017c70a5362ef3c49be3fb82c3e80210cfda0e813413c2b28a5ee141c0ad3"
+size = 89494
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Excel/2D Rotation-O12-XL-OartEffects.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["drawings", "images"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-docx4j-067"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/anon/comments.xlsx"
+sha256 = "178c61ef770dc5f29c8466c9da555b656fded18bfe47af2580b96dbf5858dd97"
+size = 9441
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/anon/comments.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["comments", "drawings"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxpt-068"
+url = "https://raw.githubusercontent.com/OfficeDev/Open-Xml-PowerTools/5881422a881f6ccefce2b9801b5dc6a753670d6e/TestFiles/SH101-SimpleFormats.xlsx"
+sha256 = "3fe00c3a33e90a20a850d55571cbd62e99f09803f0049a5971c642936b0b94f8"
+size = 8953
+licence = "MIT"
+licence_url = "https://github.com/OfficeDev/Open-Xml-PowerTools/blob/5881422a881f6ccefce2b9801b5dc6a753670d6e/LICENSE"
+source = "OfficeDev/Open-Xml-PowerTools@5881422a881f:TestFiles/SH101-SimpleFormats.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = []
+stats = ["formulas:1", "sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-069"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Graphics/3D%20Rotation%28Parallel%29-O12-XL-OartEffects.xlsx"
+sha256 = "10a89d393427b15d049e7da522f524fc304c37f2b11b087a5711f51354b8586b"
+size = 82507
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Graphics/3D Rotation(Parallel)-O12-XL-OartEffects.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["drawings", "images"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-docx4j-070"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/strict/strict-comments.xlsx"
+sha256 = "b9bd9cee28cd58506b2f8b1559c719d20ef87d8f1c8fc9b848f6e8d196faa6e7"
+size = 12645
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/strict/strict-comments.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["comments", "drawings"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-poi-071"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/openxml4j/sample.xlsx"
+sha256 = "7c2c5d2593f93945f26b826d6a2c3a6d1eaafe57ecb6e8b4813df72f909996b0"
+size = 12050
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/openxml4j/sample.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = []
+stats = ["formulas:1", "sheets:3"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-oxsdk-072"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Graphics/3D%20Bar-O12-XL-Charts.xlsx"
+sha256 = "2895aaa41d096e52ca78ab6d97d1f723693424cd38fbd554912c6cafc9076af0"
+size = 15182
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/O14ISOStrict/Graphics/3D Bar-O12-XL-Charts.xlsx"
+producer = "Microsoft Excel 14.0300"
+features = ["charts", "drawings"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+conformance = "strict"
+
+[[file]]
+id = "xlsx-docx4j-073"
+url = "https://raw.githubusercontent.com/plutext/docx4j/da086de488768dbf296e58fb6f3affab7189146f/docx4j-core-tests/src/test/resources/charts/p2-chartsheet.xlsx"
+sha256 = "65b88ec55d228c8751d0ecaaf3565472e1a3af1562be588d19c6d6bf5a86b4d1"
+size = 12374
+licence = "Apache-2.0"
+licence_url = "https://github.com/plutext/docx4j/blob/da086de488768dbf296e58fb6f3affab7189146f/legals/LICENSE"
+source = "plutext/docx4j@da086de48876:docx4j-core-tests/src/test/resources/charts/p2-chartsheet.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["charts", "chartsheets", "drawings"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxpt-074"
+url = "https://raw.githubusercontent.com/OfficeDev/Open-Xml-PowerTools/5881422a881f6ccefce2b9801b5dc6a753670d6e/TestFiles/SH004-TableAtOffsetLocation.xlsx"
+sha256 = "a3700ddb259f59dbfcf4599a9f9b671d9cf5d33efd1cdb5b201fb3bf3e8208f2"
+size = 9112
+licence = "MIT"
+licence_url = "https://github.com/OfficeDev/Open-Xml-PowerTools/blob/5881422a881f6ccefce2b9801b5dc6a753670d6e/LICENSE"
+source = "OfficeDev/Open-Xml-PowerTools@5881422a881f:TestFiles/SH004-TableAtOffsetLocation.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = ["custom-numfmts", "tables"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-075"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/NoActiveSheet/noactive_noselected.xlsx"
+sha256 = "be25bf013089f50e430b53b048925c4d3211b9264663a77bb0701623f586601c"
+size = 10077
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/NoActiveSheet/noactive_noselected.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = []
+stats = ["sheets:4"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxsdk-076"
+url = "https://raw.githubusercontent.com/dotnet/Open-XML-SDK/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/Robustness/OFCAT/00c6a24e-a99f-42c1-a26b-a086b273f3f4.xlsx"
+sha256 = "0dfb5ee5b2a6a53e632d571e49b6864f5da677f85d37b07e428aa0472e12c92e"
+size = 34769
+licence = "MIT"
+licence_url = "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE"
+source = "dotnet/Open-XML-SDK@431ab05cf160:test/DocumentFormat.OpenXml.Tests.Assets/assets/TestDataStorage/Robustness/OFCAT/00c6a24e-a99f-42c1-a26b-a086b273f3f4.xlsx"
+producer = "Microsoft Excel 12.0000"
+features = ["drawings", "images"]
+stats = ["sheets:3"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxpt-077"
+url = "https://raw.githubusercontent.com/OfficeDev/Open-Xml-PowerTools/5881422a881f6ccefce2b9801b5dc6a753670d6e/OpenXmlPowerToolsExamples/SmlDataRetriever01/SampleSpreadsheet.xlsx"
+sha256 = "704b052fba5e5dfe6aa9fcaaaca2620d1696cb1d950827de555b5e8bb0cca1a8"
+size = 10339
+licence = "MIT"
+licence_url = "https://github.com/OfficeDev/Open-Xml-PowerTools/blob/5881422a881f6ccefce2b9801b5dc6a753670d6e/LICENSE"
+source = "OfficeDev/Open-Xml-PowerTools@5881422a881f:OpenXmlPowerToolsExamples/SmlDataRetriever01/SampleSpreadsheet.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["custom-numfmts", "tables"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-078"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Tables/TableStyle-input.xlsx"
+sha256 = "1c699b7f935851e148e608ef7cf1585a849d8f77634b4c803765285fec84ef1b"
+size = 12076
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Tables/TableStyle-input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["tables"]
+stats = ["formulas:3", "sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-oxpt-079"
+url = "https://raw.githubusercontent.com/OfficeDev/Open-Xml-PowerTools/5881422a881f6ccefce2b9801b5dc6a753670d6e/TestFiles/SH003-TableWithDateInFirstColumn.xlsx"
+sha256 = "2afc6e1dfd13617becf5977ad8eff9f2deda9e2edefaae1bd5111941d2e87557"
+size = 10177
+licence = "MIT"
+licence_url = "https://github.com/OfficeDev/Open-Xml-PowerTools/blob/5881422a881f6ccefce2b9801b5dc6a753670d6e/LICENSE"
+source = "OfficeDev/Open-Xml-PowerTools@5881422a881f:TestFiles/SH003-TableWithDateInFirstColumn.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["custom-numfmts", "tables"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-080"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/PivotTableReferenceFiles/PivotCacheWithoutSourceData-input.xlsx"
+sha256 = "b38a116ccb1e92ec77c70bd06fe2af5d85c8699ed6b197c0c9ac6dc712c441dd"
+size = 12549
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/PivotTableReferenceFiles/PivotCacheWithoutSourceData-input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["pivot-tables"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-081"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/TryToLoad/LoadImageWithoutTransform2D.xlsx"
+sha256 = "3bcf7087b8cc04a5c909a642eb177e253cfc0298b9f2775e62d426f4c980cd23"
+size = 26453
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/TryToLoad/LoadImageWithoutTransform2D.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["drawings", "images", "outline"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "review"
+note = "user-attached bug-tracker file: licence asserted by the project, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-closedxml-082"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/PivotTable/Save/Pivot_table_conditional_format.xlsx"
+sha256 = "b2517d3e13f046fd940f2fa45bbb82a61359a8b44561ea0a80dee9aab6210bbe"
+size = 12664
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/PivotTable/Save/Pivot_table_conditional_format.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["conditional-formatting", "pivot-tables"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-exceljs-083"
+url = "https://raw.githubusercontent.com/exceljs/exceljs/5bed18b45e824f409b08456b59b87430ded023ab/test/data/test-default-font.xlsx"
+sha256 = "a2bf6f9051f9136374069a31fc53202b4ae45e539055d3545ebcdbfc3691c109"
+size = 8848
+licence = "MIT"
+licence_url = "https://github.com/exceljs/exceljs/blob/5bed18b45e824f409b08456b59b87430ded023ab/LICENSE"
+source = "exceljs/exceljs@5bed18b45e82:test/data/test-default-font.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = []
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-084"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Sandbox/test.xlsx"
+sha256 = "700476b55d09ef378d55395969d0c1abadbf2742c50ce41dd5998077a84e18cb"
+size = 8725
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Sandbox/test.xlsx"
+producer = "Microsoft Excel 15.0300"
+features = []
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-085"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Comments/InsetsUnitConversion.xlsx"
+sha256 = "b92da71f5c23a85ce3abf06db92d91f300187183ef30e66127ea5ae9bce7a069"
+size = 11522
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Comments/InsetsUnitConversion.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["comments", "drawings"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-086"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Drawings/Comments/inputfile.xlsx"
+sha256 = "7b8b35bf4fcd90c109cd4d2e502857e84ae2bbac780a3d892e8d362f87061154"
+size = 11822
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Drawings/Comments/inputfile.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["comments", "drawings"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-087"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Pictures/EmfPicture.xlsx"
+sha256 = "fdb72531c363e558309c66b861e99f608abfadd1d139d46cecb488f5444676d4"
+size = 13002
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Pictures/EmfPicture.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["drawings", "images"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-poi-088"
+url = "https://raw.githubusercontent.com/apache/poi/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/test-data/openxml4j/50154.xlsx"
+sha256 = "7c3f5f0907f198561933d05eb7c4fea1a8298e39fa7855b16e10d0e83ee1c399"
+size = 13583
+licence = "Apache-2.0"
+licence_url = "https://github.com/apache/poi/blob/4f3c25563919e7efa4a75feccf6cef1ac3d05a04/legal/LICENSE"
+source = "apache/poi@4f3c25563919:test-data/openxml4j/50154.xlsx"
+producer = "Microsoft Macintosh Excel 12.0000"
+features = ["drawings", "images"]
+stats = ["sheets:5"]
+tier = "full"
+publish_renders = "review"
+note = "Apache POI test-data: many files are user-supplied bug attachments; Apache-2.0 asserted by the ASF repository, authorship unverified; review content before publishing renders"
+
+[[file]]
+id = "xlsx-closedxml-089"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/ConditionalFormats/Extra_formulas_CellIs_type.xlsx"
+sha256 = "24ac16ba3212cb3b9df947956a439b0252d7bfcfd36781a66a5211d67516bf16"
+size = 9194
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/ConditionalFormats/Extra_formulas_CellIs_type.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["conditional-formatting"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-090"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Parts/WorksheetWithDrawingCanBeModified-input.xlsx"
+sha256 = "4871e6ba19628061a2524a45d6bfc739b85bb95820e56e1a9f3400ce966df03a"
+size = 9971
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Parts/WorksheetWithDrawingCanBeModified-input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["drawings"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-091"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Shapes/sheet-with-form-controls-input.xlsx"
+sha256 = "cabf414c38d03fc084c48ddedb9a7743f2356375fc49013d6872a66242042d0f"
+size = 12459
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Shapes/sheet-with-form-controls-input.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = ["drawings"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-closedxml-092"
+url = "https://raw.githubusercontent.com/ClosedXML/ClosedXML/057f5976c788d97e8eac86d1a528bd5411d9386e/ClosedXML.Tests/Resource/Other/Cells/EmptySi.xlsx"
+sha256 = "f2b08c921a0aa0caa7385699884d3eebb29bcf5a8aa7eb2c606af23590263a0c"
+size = 8497
+licence = "MIT"
+licence_url = "https://github.com/ClosedXML/ClosedXML/blob/057f5976c788d97e8eac86d1a528bd5411d9386e/LICENSE"
+source = "ClosedXML/ClosedXML@057f5976c788:ClosedXML.Tests/Resource/Other/Cells/EmptySi.xlsx"
+producer = "Microsoft Excel 16.0300"
+features = []
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+
+[[file]]
+id = "xlsx-gov-000"
+url = "https://www2.census.gov/programs-surveys/popest/tables/2020-2023/state/totals/NST-EST2023-POP.xlsx"
+sha256 = "aec49456a006a06bdaba1ec90f032e0412617da40cdda26709074fbc6bb528e6"
+size = 14964
+licence = "US federal government work, not subject to copyright in the US (17 U.S.C. 105)"
+licence_url = "https://www.usa.gov/government-copyright"
+source = "U.S. Census Bureau population estimates table"
+producer = "Microsoft Excel 16.0300"
+features = ["defined-names", "merged-cells"]
+stats = ["sheets:1"]
+tier = "full"
+publish_renders = "yes"
+mirror = "required: origin URL is not content-stable; keep a copy in the corpus bucket (licence permits redistribution)"
+
+[[file]]
+id = "xlsx-gov-001"
+url = "https://www.eia.gov/outlooks/steo/xls/STEO_m.xlsx"
+sha256 = "54989362410da4aff5673580396380c3a8f4f111fa6d01c6d4fab05ef90efbf4"
+size = 1098385
+licence = "US federal government work, not subject to copyright in the US (17 U.S.C. 105); EIA: 'U.S. government publications are in the public domain'"
+licence_url = "https://www.eia.gov/about/copyrights_reuse.php"
+source = "EIA Short-Term Energy Outlook monthly workbook (changes monthly: sha256 is of the 2026-10-25 download)"
+producer = "Microsoft Excel 16.0300"
+features = ["conditional-formatting", "custom-numfmts", "defined-names", "drawings", "freeze-panes", "images", "merged-cells"]
+stats = ["formulas:385", "sheets:28"]
+tier = "full"
+publish_renders = "review"
+mirror = "required: origin URL is not content-stable; keep a copy in the corpus bucket (licence permits redistribution)"
+note = "contains EIA logo (registered trademark); 28 sheets, 385 formulas"
+
+[[file]]
+id = "xlsx-gov-002"
+url = "https://csrc.nist.gov/files/pubs/sp/800/171/r3/final/docs/sp800-171r3-cui-overlay.xlsx"
+sha256 = "c69914ac7d364b3ec6b661474102389072b5a293bc2dca156433dedd2d1e6da7"
+size = 121361
+licence = "US federal government work, not subject to copyright in the US (17 U.S.C. 105)"
+licence_url = "https://www.nist.gov/oism/copyrights"
+source = "NIST SP 800-171 Rev. 3 supplemental material"
+producer = "Microsoft Excel 16.0300"
+features = ["autofilter", "defined-names", "drawings", "freeze-panes"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+mirror = "required: origin URL is not content-stable; keep a copy in the corpus bucket (licence permits redistribution)"
+
+[[file]]
+id = "xlsx-gov-003"
+url = "https://csrc.nist.gov/files/pubs/sp/800/171/r3/final/docs/sp800-171r2-to-r3-analysis.xlsx"
+sha256 = "ad0908f52945e316dec05a4032cbcaa75958eab2534d2627b3a89f696fb30b84"
+size = 52881
+licence = "US federal government work, not subject to copyright in the US (17 U.S.C. 105)"
+licence_url = "https://www.nist.gov/oism/copyrights"
+source = "NIST SP 800-171 Rev. 3 supplemental material"
+producer = "Microsoft Excel 16.0300"
+features = ["autofilter", "defined-names", "drawings", "freeze-panes", "merged-cells"]
+stats = ["sheets:2"]
+tier = "full"
+publish_renders = "yes"
+mirror = "required: origin URL is not content-stable; keep a copy in the corpus bucket (licence permits redistribution)"
