@@ -1,0 +1,218 @@
+# Facthory Grid: upstream GridCraft (storytold/gridcraft) under the Facthory brand.
+# Applied to a fresh checkout by facthory/rebrand.py before every build; the tracked tree stays
+# upstream's so releases merge cleanly. Order and semantics: the docstring of rebrand.py.
+
+[brand]
+name = "Facthory Grid"
+app_id = "com.facthory.grid"
+publisher = "Bandpey GmbH"
+website = "https://facthory.com/grid"
+repository = "https://github.com/FACTHORYAI/grid"
+support = "https://github.com/FACTHORYAI/grid/issues"
+
+[upstream]
+name = "GridCraft"
+team = "ArtCraft team"
+repository = "https://github.com/storytold/gridcraft"
+
+[icon]
+svg = "grid.svg"
+base = "facthorygrid"
+
+[files]
+# Never touched: upstream's licences and notices stay exactly as written (Apache-2.0 §4).
+skip = ["LICENSE-APACHE", "LICENSE-MIT", "NOTICE", ".github"]
+# Credit files: only tokens marked credits = true (ids, paths, URLs) apply, so upstream's authors
+# keep their credit while the paths they name follow the renames.
+credits = ["ATTRIBUTION.md", "contributors"]
+# The ArtCraft marks, licensed only for unmodified GridCraft (docs/brand/LICENSE-brand.txt).
+delete = ["docs/brand"]
+
+# ---------------------------------------------------------------------------------------------
+# Rules before the tokens, on upstream's text. Each fails the build when upstream moves it.
+
+[[rule]]
+why = "ProgIDs, the AppDir and other dotted names cannot take the space in the display name"
+files = ["packaging/*", "apps/*"]
+find = 'GridCraft\.(?=[A-Z])'
+replace = 'FacthoryGrid.'
+regex = true
+
+[[rule]]
+why = "The ArtCraft Discord becomes our issue tracker: About link"
+files = "crates/ui-egui/src/dialogs.rs"
+find = 'ui.hyperlink_to("Join the ArtCraft Discord", "https://discord.gg/artcraft");'
+replace = 'ui.hyperlink_to("Report a problem on GitHub", "https://discord.gg/artcraft");'
+count = 1
+
+[[rule]]
+why = "Its translations: the new label, shown in English until translated"
+files = "crates/ui-egui/src/i18n/*.rs"
+find = '"Join the ArtCraft Discord"(\s*(?:=>|,)\s*)"[^"]*"'
+replace = '"Report a problem on GitHub"\1"Report a problem on GitHub"'
+regex = true
+count = 7
+
+[[rule]]
+why = "macOS Help menu: the Discord item"
+files = "apps/gridcraft/src/native_menu.rs"
+find = '("Join the ArtCraft Discord…", "url:https://discord.gg/artcraft", None)'
+replace = '("Report a Problem on GitHub…", "url:https://discord.gg/artcraft", None)'
+count = 1
+
+# ---------------------------------------------------------------------------------------------
+# Tokens, in order, over every text file. credits = true: also in the credit files.
+
+[[token]]
+from = "ai.storyteller.gridcraft"
+to = "com.facthory.grid"
+credits = true
+
+[[token]]
+from = "ai.storyteller"
+to = "com.facthory"
+credits = true
+
+[[token]]
+from = "gridcraft@storyteller.ai"
+to = "support@facthory.com"
+
+[[token]]
+from = "https://getartcraft.com/apps/gridcraft"
+to = "https://facthory.com/grid"
+credits = true
+
+[[token]]
+from = "getartcraft.com/apps/gridcraft"
+to = "facthory.com/grid"
+credits = true
+
+# The rest of upstream's site (the Help menu's "GridCraft on getartcraft.com").
+[[token]]
+from = "getartcraft.com"
+to = "facthory.com"
+
+[[token]]
+from = "https://discord.gg/artcraft"
+to = "https://github.com/FACTHORYAI/grid/issues"
+
+[[token]]
+from = "discord.gg/artcraft"
+to = "github.com/FACTHORYAI/grid/issues"
+
+[[token]]
+from = "github.com/storytold/gridcraft"
+to = "github.com/FACTHORYAI/grid"
+
+[[token]]
+from = "storytold/gridcraft"
+to = "FACTHORYAI/grid"
+
+[[token]]
+from = "Learning Machines LLC"
+to = "Bandpey GmbH"
+
+[[token]]
+from = "GRIDCRAFT"
+to = "FACTHORY_GRID"
+
+[[token]]
+from = "GridCraft"
+to = "Facthory Grid"
+
+[[token]]
+from = "Gridcraft"
+to = "FacthoryGrid"
+
+# Crate, binary, file and directory names: one lowercase word, so Rust identifiers
+# (gridcraft_engine -> facthorygrid_engine), module paths and log targets stay consistent.
+[[token]]
+from = "gridcraft"
+to = "facthorygrid"
+credits = true
+
+# ---------------------------------------------------------------------------------------------
+# Windows Installer: our own UpgradeCode and component GUIDs, stable across releases.
+
+[guids]
+namespace = "https://facthory.com/grid/windows-installer"
+files = ["packaging/windows/*.wxs"]
+
+# ---------------------------------------------------------------------------------------------
+# Rules after the tokens and renames: the credits, which name upstream on purpose.
+
+[[rule]]
+phase = "after"
+why = "About: who makes it and what it is based on (brand licence: plain-text credit allowed)"
+files = "crates/ui-egui/src/dialogs.rs"
+find = 'ui.label("A clean-room, open-source, Rust-native spreadsheet. Part of ArtCraft.");'
+replace = 'ui.label("A free, open-source spreadsheet from Facthory. Based on GridCraft by the ArtCraft team.");'
+count = 1
+
+[[rule]]
+phase = "after"
+why = "About: our copyright, then upstream's, which the licence requires us to keep"
+files = "crates/ui-egui/src/dialogs.rs"
+find = '''
+            ui.hyperlink_to("Report a problem on GitHub", "https://github.com/FACTHORYAI/grid/issues");
+'''
+replace = '''
+            ui.hyperlink_to("Report a problem on GitHub", "https://github.com/FACTHORYAI/grid/issues");
+            ui.add_space(4.0);
+            ui.weak("MIT OR Apache-2.0. Copyright (c) 2026 Bandpey GmbH. Based on GridCraft, copyright (c) 2026 ArtCraft Team and the GridCraft contributors.");
+'''
+count = 1
+
+[[rule]]
+phase = "after"
+why = "Windows file properties: our copyright and upstream's"
+files = "apps/facthorygrid/build.rs"
+find = '"Copyright (c) the Facthory Grid authors. MIT OR Apache-2.0."'
+replace = '"Copyright (c) Bandpey GmbH; based on GridCraft, copyright (c) the GridCraft authors. MIT OR Apache-2.0."'
+count = 1
+
+[[rule]]
+phase = "after"
+why = "The app icon is ours; its attribution rows say so"
+files = "ATTRIBUTION.md"
+find = '^(\| `assets/app-icon/[^`]+\.(?:svg|png|ico|icns)` \|).*$'
+replace = '\1 Bandpey GmbH | original artwork (`facthory/icons/grid.svg`), rendered by `facthory/icons/render.py` | MIT OR Apache-2.0 | Facthory Grid app icon |'
+regex = true
+count = 14
+
+[[rule]]
+phase = "after"
+why = "Upstream's icon README and icon licence go with upstream's icon (the copy below replaces the folder)"
+files = "ATTRIBUTION.md"
+find = '^\| `assets/app-icon/(?:README\.md|LICENSE\.txt)` \|.*\n'
+replace = ''
+regex = true
+count = 2
+
+# ---------------------------------------------------------------------------------------------
+
+[[copy]]
+from = "icons/app-icon"
+to = "assets/app-icon"
+replace = true
+
+# ---------------------------------------------------------------------------------------------
+# `rebrand.py check`: no upstream mark in what ships, except the credits above.
+
+[check]
+paths = ["packaging", "assets", "apps/*/build.rs", "apps/*/index.html", "Cargo.toml", "omastore.toml"]
+# Developer notes and scripts under packaging/ do not ship; app-build.rs.in is a one-time
+# template already moved to apps/*/build.rs (docs/releasing.md).
+exclude = ["*/tests/*", "*.png", "*.ico", "*.icns", "*.md", "*.py", "*.rs.in"]
+forbid = [
+  "artcraft", "gridcraft", "storytold", "storyteller", "getartcraft", "learning machines",
+  "crafting apps", "photocraft", "vectorcraft", "filmcraft", "lightcraft", "pdfcraft",
+  "effectcraft", "designcraft", "wordcraft", "deckcraft",
+]
+allow = [
+  'Based on GridCraft by the ArtCraft team.',
+  'Based on GridCraft, copyright (c) 2026 ArtCraft Team and the GridCraft contributors.',
+  'based on GridCraft, copyright (c) the GridCraft authors.',
+  # Build input used unmodified (Cargo git dependency), not a product surface.
+  'https://github.com/storytold/craft-libs',
+]
