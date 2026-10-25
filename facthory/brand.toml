@@ -19,6 +19,13 @@ repository = "https://github.com/storytold/gridcraft"
 svg = "grid.svg"
 base = "facthorygrid"
 
+# Facthory's other asset files, credited in ATTRIBUTION.md's Facthory block (render.py).
+[[asset]]
+path = "dmg/background.svg"
+author = "@XusBadia (GridCraft contributors); recoloured and retitled by Bandpey GmbH"
+source = "derived from GridCraft's `packaging/macos/dmg/background.svg`; title outlined from Inter SemiBold (OFL-1.1)"
+licence = "MIT OR Apache-2.0"
+
 [files]
 # Never touched: upstream's licences and notices stay exactly as written (Apache-2.0 §4).
 skip = ["LICENSE-APACHE", "LICENSE-MIT", "NOTICE", ".github"]
@@ -189,12 +196,60 @@ replace = ''
 regex = true
 count = 2
 
+# The updater (facthory/update/facthory_update.rs, copied below): its module and its calls from
+# main.rs. It needs no dependency the app lacks.
+[[rule]]
+phase = "after"
+why = "The updater's module"
+files = "apps/facthorygrid/src/main.rs"
+find = "mod control_server;\n"
+replace = "mod control_server;\nmod facthory_update;\n"
+count = 1
+
+[[rule]]
+phase = "after"
+why = "The updater starts with the app, in runs that keep preferences"
+files = "apps/facthorygrid/src/main.rs"
+find = "    app.watch_desktop_theme();\n"
+replace = "    app.watch_desktop_theme();\n    facthory_update::start(\"Facthory Grid\", config_dir().filter(|_| prefs_enabled()));\n"
+count = 1
+
+[[rule]]
+phase = "after"
+why = "The updater's notice"
+files = "apps/facthorygrid/src/main.rs"
+find = "        self.0.ui(ui);\n"
+replace = "        self.0.ui(ui);\n        facthory_update::ui(ui.ctx());\n"
+count = 1
+
+[[rule]]
+phase = "after"
+why = "A downloaded update installs as the app quits (on_exit runs on every way of quitting)"
+files = "apps/facthorygrid/src/main.rs"
+find = "        save_prefs(&self.0);\n"
+replace = "        save_prefs(&self.0);\n        facthory_update::on_exit();\n"
+count = 1
+
 # ---------------------------------------------------------------------------------------------
+
+[[copy]]
+from = "update/facthory_update.rs"
+to = "apps/facthorygrid/src/facthory_update.rs"
 
 [[copy]]
 from = "icons/app-icon"
 to = "assets/app-icon"
 replace = true
+
+[[copy]]
+# The DMG window: our colours, title and icon (the release workflow renders it with generate.py).
+from = "dmg/background.svg"
+to = "packaging/macos/dmg/background.svg"
+
+[[copy]]
+# Packages carry README.md (packaging copy_docs): ours, not upstream's.
+from = "../.github/README.md"
+to = "README.md"
 
 # ---------------------------------------------------------------------------------------------
 # `rebrand.py check`: no upstream mark in what ships, except the credits above.
