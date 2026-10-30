@@ -176,7 +176,8 @@ credits = true
 
 [guids]
 namespace = "https://facthory.com/grid/windows-installer"
-files = ["packaging/windows/*.wxs"]
+# The installer's own policy check records the upgrade identity: the same GUIDs, mapped alike.
+files = ["packaging/windows/*.wxs", "packaging/windows/install-policy.json"]
 
 # ---------------------------------------------------------------------------------------------
 # Rules after the tokens and renames: the credits, which name upstream on purpose.
