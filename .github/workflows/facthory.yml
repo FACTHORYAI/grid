@@ -19,7 +19,7 @@ concurrency:
 jobs:
   branded:
     # Pinned to a commit, not @main: this workflow builds what we ship. Bumped with upstream syncs.
-    uses: storytold/craft-common-actions/.github/workflows/gate.yml@13491f8120782bf106fb7859332929bf6c1cdb5d
+    uses: storytold/craft-common-actions/.github/workflows/gate.yml@2b3fb9dc05036f73c77d18f753a3aa9da55fa386
     with:
       packages: >-
         pkg-config libxkbcommon-dev libwayland-dev libx11-dev libxcursor-dev libxrandr-dev
