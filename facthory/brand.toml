@@ -297,6 +297,9 @@ paths = ["packaging", "assets", "apps/*/build.rs", "apps/*/index.html", "Cargo.t
 # Developer notes and scripts under packaging/ do not ship; app-build.rs.in is a one-time
 # template already moved to apps/*/build.rs (docs/releasing.md).
 exclude = ["*/tests/*", "*.png", "*.ico", "*.icns", "*.md", "*.py", "*.rs.in"]
+# These also keep upstream's updater out: its feeds are its repositories (storytold/<app>) and
+# its ids ai.storyteller.<app>, and it names the ArtCraft Launcher, so a build that links it
+# again fails here (it did: craft-update, upstream releases of 2026-10).
 forbid = [
   "artcraft", "gridcraft", "storytold", "storyteller", "getartcraft", "learning machines",
   "crafting apps", "photocraft", "vectorcraft", "filmcraft", "lightcraft", "pdfcraft",
