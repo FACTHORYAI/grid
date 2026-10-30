@@ -286,13 +286,13 @@ jobs:
         run: packaging/linux/package.sh
       - name: No upstream mark in what ships
         # The binaries, and every text file inside the .deb (desktop entry, AppStream metadata,
-        # docs). Left out: licences and notices, which keep upstream's copyright, and README.md,
-        # our front page, which credits upstream by name.
+        # docs). Left out: licences, notices and ATTRIBUTION.md, which keep upstream's copyright and
+        # credits, and README.md, our front page, which credits upstream by name.
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/deb"
           dpkg-deb -x dist/release/*.deb "$RUNNER_TEMP/deb"
-          mapfile -t files < <(find "$RUNNER_TEMP/deb" -type f ! -name '*.png' ! -name '*.svg' ! -name 'LICENSE*' ! -name 'NOTICE*' ! -name 'OFL-*' ! -name 'README*')
+          mapfile -t files < <(find "$RUNNER_TEMP/deb" -type f ! -name '*.png' ! -name '*.svg' ! -name 'LICENSE*' ! -name 'NOTICE*' ! -name 'OFL-*' ! -name 'README*' ! -name 'ATTRIBUTION*')
           python3 facthory/rebrand.py check "${files[@]}"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
