@@ -68,6 +68,30 @@ replace = '("Report a Problem on GitHub…", "url:https://discord.gg/artcraft", 
 count = 1
 
 [[rule]]
+why = "macOS: the CLI goes inside the app, beside the app's own executable, so a Facthory agent finds the MCP server where the app is installed (W5); the Windows and Linux installers already carry it"
+files = "packaging/macos/package.sh"
+find = '''
+cp "$WORK/bin/gridcraft" "$APP/Contents/MacOS/GridCraft"
+'''
+replace = '''
+cp "$WORK/bin/gridcraft" "$APP/Contents/MacOS/GridCraft"
+cp "$WORK/bin/gridcraft-cli" "$APP/Contents/MacOS/gridcraft-cli"
+'''
+count = 1
+
+[[rule]]
+why = "... signed with the hardened runtime before the bundle, as nested code is"
+files = "packaging/macos/package.sh"
+find = '''
+sign --options runtime --entitlements "$HERE/entitlements.plist" "$APP/Contents/MacOS/GridCraft"
+'''
+replace = '''
+sign --options runtime "$APP/Contents/MacOS/gridcraft-cli"
+sign --options runtime --entitlements "$HERE/entitlements.plist" "$APP/Contents/MacOS/GridCraft"
+'''
+count = 1
+
+[[rule]]
 why = "Windows: the installer's suite folder (Programs\\ArtCraft\\<app>, Program Files\\ArtCraft\\<app>) is ours, and the installer's own policy check expects the same name"
 files = ["packaging/windows/*.wxs", "packaging/windows/*.wxi", "packaging/windows/*.ps1", "packaging/windows/*.md"]
 find = "ArtCraft"
