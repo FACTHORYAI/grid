@@ -23,8 +23,11 @@ pub(crate) fn start(app: &mut SheetApp, manual: bool) {
 
 pub(crate) fn tick(_app: &mut SheetApp, _ctx: &egui::Context) {}
 
-pub(crate) fn show(app: &mut SheetApp, ctx: &egui::Context) {
-    if std::mem::take(&mut app.updates_rt.open_releases) {
-        ctx.open_url(egui::OpenUrl::new_tab(RELEASES));
+pub(crate) fn show(app: &mut SheetApp, _ctx: &egui::Context) {
+    // The native app opens pages through its services: its egui has no browser integration.
+    if std::mem::take(&mut app.updates_rt.open_releases)
+        && let Some(open) = &app.services.open_url
+    {
+        open(RELEASES);
     }
 }
