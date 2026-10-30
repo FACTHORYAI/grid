@@ -216,10 +216,11 @@ can run.
   ```
 
 Where the CLI is: on Linux the `.deb` and `.rpm` install `facthorygrid-cli` on your `PATH` (the
-`.tar.gz` has it in `bin/`); on Windows it is in `C:\Program Files\Facthory Grid\` (add that folder
-to `PATH` to call it by name); on macOS it is inside the app,
-`/Applications/Facthory Grid.app/Contents/MacOS/facthorygrid-cli`, and also a separate download,
-`facthorygrid-cli-<version>-macos-universal.zip`. Details:
+`.tar.gz` has it in `bin/`); on Windows it is in the app's folder,
+`%LOCALAPPDATA%\Programs\Facthory\Facthory Grid\`, or `C:\Program Files\Facthory\Facthory Grid\`
+when installed for everyone (add that folder to `PATH` to call it by name); on macOS it is inside
+the app, `/Applications/Facthory Grid.app/Contents/MacOS/facthorygrid-cli`, and also a separate
+download, `facthorygrid-cli-<version>-macos-universal.zip`. Details:
 [docs/cli.md](https://github.com/FACTHORYAI/grid/blob/main/docs/cli.md) and
 [docs/mcp.md](https://github.com/FACTHORYAI/grid/blob/main/docs/mcp.md).
 
