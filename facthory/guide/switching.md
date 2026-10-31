@@ -28,7 +28,7 @@ SHA-256 checksum for every file; the downloads page explains how to check one.
 | System | File | How |
 | ------ | ---- | --- |
 | **macOS** 11 or later, Apple silicon or Intel | `facthorygrid-<version>-macos-universal.dmg` | Open the DMG and drag Facthory Grid to Applications. Signed and notarized by Bandpey GmbH; macOS only asks the usual first-launch question for downloaded apps. |
-| **Windows** 10 or later (x64), Windows 11 on ARM | `facthorygrid-<version>-windows-x64.msi` or `…-windows-arm64.msi` | Run the installer (it needs administrator rights and installs for all users). It offers an optional desktop shortcut. Signed by Bandpey GmbH. |
+| **Windows** 10 or later (x64), Windows 11 on ARM | `facthorygrid-<version>-windows-x64.msi` or `…-windows-arm64.msi` | Run the installer. It installs for you alone without administrator rights; its first page also offers an installation for everyone on the computer, which asks for them. It offers an optional desktop shortcut. Signed by Bandpey GmbH. |
 | **Linux** x86_64 or ARM64 | `.AppImage`, `.deb`, `.rpm` or `.tar.gz` | See below. |
 
 On Linux:
@@ -216,10 +216,11 @@ can run.
   ```
 
 Where the CLI is: on Linux the `.deb` and `.rpm` install `facthorygrid-cli` on your `PATH` (the
-`.tar.gz` has it in `bin/`); on Windows it is in `C:\Program Files\Facthory Grid\` (add that folder
-to `PATH` to call it by name); on macOS it is inside the app,
-`/Applications/Facthory Grid.app/Contents/MacOS/facthorygrid-cli`, and also a separate download,
-`facthorygrid-cli-<version>-macos-universal.zip`. Details:
+`.tar.gz` has it in `bin/`); on Windows it is in the app's folder,
+`%LOCALAPPDATA%\Programs\Facthory\Facthory Grid\`, or `C:\Program Files\Facthory\Facthory Grid\`
+when installed for everyone (add that folder to `PATH` to call it by name); on macOS it is inside
+the app, `/Applications/Facthory Grid.app/Contents/MacOS/facthorygrid-cli`, and also a separate
+download, `facthorygrid-cli-<version>-macos-universal.zip`. Details:
 [docs/cli.md](https://github.com/FACTHORYAI/grid/blob/main/docs/cli.md) and
 [docs/mcp.md](https://github.com/FACTHORYAI/grid/blob/main/docs/mcp.md).
 

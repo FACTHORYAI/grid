@@ -236,11 +236,11 @@ The icon must not resemble Microsoft's green "X" (§14.5). Sources as in [Factho
 
 The local Grid checkout has no `facthory-release.yml` yet (Page's builds signed x64 and ARM64 MSIs and drafts the GitHub release); W4 adds the same workflow to Grid before the first submission.
 
-## Notes for certification (<!--n:notes-->1,374<!--/--> characters; limit 2,000)
+## Notes for certification (<!--n:notes-->1,474<!--/--> characters; limit 2,000)
 
 <!-- block:notes -->
 ```text
-Facthory Grid is a desktop spreadsheet app delivered as a per-machine MSI; a UAC prompt during install is expected. A silent install creates no desktop shortcut (only the Start menu entry). No account, sign-in or server is needed and the app works fully offline.
+Facthory Grid is a desktop spreadsheet app delivered as an MSI that installs for the current user by default (no UAC prompt); an installation for all users is offered in its interactive setup and asks for elevation. A silent install creates no desktop shortcut (only the Start menu entry). No account, sign-in or server is needed and the app works fully offline.
 
 How to test: start Facthory Grid from the Start menu and open a new workbook. Enter numbers and a formula such as =SUM(A1:A5), format the cells, insert a chart from the Insert tab, then use File > Save As to save an .xlsx file and File > Export to create a PDF.
 
