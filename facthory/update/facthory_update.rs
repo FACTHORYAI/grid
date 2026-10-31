@@ -2,7 +2,9 @@
 //! `facthory/rebrand.py` copies it into the app and calls it from `main.rs` (`brand.toml`).
 //!
 //! Once a day it reads the update feed of our releases (`latest.json`, which
-//! `facthory/release.py` writes). When the feed names a newer version, it downloads this
+//! `facthory/release.py` writes). A new release reaches a growing share of copies: the feed's
+//! `rollout` (a percentage, raised by `facthory/rollout.py`) against this copy's own lasting
+//! bucket, 0 to 99. When the feed names a newer version for this copy, it downloads this
 //! platform's file in the background and checks its size and SHA-256 against the feed and, on
 //! macOS and Windows, that the system accepts its signature and that the same developer signed it
 //! as this app. The new version then installs when the app quits; "Restart now" quits and opens it:
@@ -237,6 +239,10 @@ fn check(name: &str, feed_url: &str, settings: &Path, downloads: &Path) -> Resul
     if !newer(&feed.version, VERSION) || Saved::load(settings).skip.as_deref() == Some(feed.version.as_str()) {
         return Ok(Phase::Idle);
     }
+    if Saved::bucket(settings) >= feed.rollout {
+        log::info!("updates: {name} {} is rolling out to {}% of copies, not this one yet", feed.version, feed.rollout);
+        return Ok(Phase::Idle);
+    }
     log::info!("updates: {name} {} is available", feed.version);
     let available = Phase::Available { version: feed.version.clone(), page: feed.page.clone(), packaged: packaged() };
     let (Some(asset), Some(method)) = (feed.asset, Method::for_this_copy(name)) else { return Ok(available) };
@@ -278,6 +284,8 @@ struct Feed {
     /// The release's page, for a copy that can't install the update itself.
     page: String,
     asset: Option<Asset>,
+    /// The percentage of copies the update is offered to; copies whose bucket is below it take it.
+    rollout: u8,
 }
 
 #[derive(Debug, PartialEq)]
@@ -311,7 +319,13 @@ impl Feed {
             let sum = sha256.len() == 64 && sha256.chars().all(|c| c.is_ascii_hexdigit());
             (plain && ours && sum && size > 0 && size <= FILE_MAX).then(|| Asset { name: name.into(), url: url.into(), sha256, size })
         });
-        Ok(Feed { page: format!("{repo}releases/tag/v{version}"), version, asset })
+        // A feed without `rollout` (before staged releases) offers the update to every copy; one
+        // that isn't a whole number holds it back, so a broken edit never offers it to everyone.
+        let rollout = match v.get("rollout") {
+            None => 100,
+            Some(r) => r.as_u64().map_or(0, |r| u8::try_from(r.min(100)).unwrap_or(100)),
+        };
+        Ok(Feed { page: format!("{repo}releases/tag/v{version}"), version, asset, rollout })
     }
 }
 
@@ -336,6 +350,8 @@ struct Saved {
     last_check: u64,
     /// The version the user chose to skip.
     skip: Option<String>,
+    /// This copy's place in a staged rollout, 0 to 99, drawn once and kept.
+    bucket: Option<u8>,
 }
 
 impl Saved {
@@ -349,14 +365,33 @@ impl Saved {
             enabled: v.get("enabled").and_then(|e| e.as_bool()).unwrap_or(true),
             last_check: v.get("last_check").and_then(|t| t.as_u64()).unwrap_or(0),
             skip: v.get("skip").and_then(|s| s.as_str()).map(str::to_owned),
+            bucket: v.get("bucket").and_then(|b| b.as_u64()).filter(|&b| b < 100).and_then(|b| u8::try_from(b).ok()),
         }
+    }
+
+    /// This copy's rollout bucket: the kept one, or a new one drawn and kept. Drawn from the clock
+    /// and the process, hashed, so copies spread evenly without a random-number dependency.
+    fn bucket(settings: &Path) -> u8 {
+        if let Some(bucket) = Saved::load(settings).bucket {
+            return bucket;
+        }
+        #[allow(clippy::disallowed_methods)]
+        let nanos = SystemTime::now().duration_since(UNIX_EPOCH).map(|d| d.as_nanos()).unwrap_or(0);
+        let mut h = Sha256::new();
+        h.update(&nanos.to_le_bytes());
+        h.update(&std::process::id().to_le_bytes());
+        h.update(settings.as_os_str().as_encoded_bytes());
+        let d = h.finish();
+        let bucket = u8::try_from(u16::from_le_bytes([d[0], d[1]]) % 100).unwrap_or(0);
+        Saved::update(settings, |saved| saved.bucket = Some(bucket));
+        Saved::load(settings).bucket.unwrap_or(bucket)
     }
 
     /// Reads, changes and writes the file, so the check and the notice don't undo each other.
     fn update(settings: &Path, change: impl FnOnce(&mut Saved)) {
         let mut saved = Saved::load(settings);
         change(&mut saved);
-        let json = serde_json::json!({"enabled": saved.enabled, "last_check": saved.last_check, "skip": saved.skip});
+        let json = serde_json::json!({"enabled": saved.enabled, "last_check": saved.last_check, "skip": saved.skip, "bucket": saved.bucket});
         let path = Self::path(settings);
         let tmp = settings.join(format!(".update.json.{}.tmp", std::process::id()));
         let written =
@@ -530,7 +565,7 @@ impl Method {
         let exe = std::env::current_exe().ok()?;
         match std::env::consts::OS {
             "macos" => {
-                // `…/Facthory Page.app/Contents/MacOS/<binary>`; a copy macOS runs from a random
+                // `…/Facthory Grid.app/Contents/MacOS/<binary>`; a copy macOS runs from a random
                 // read-only path (App Translocation) can't replace itself.
                 let bundle = exe.parent()?.parent()?.parent()?.to_path_buf();
                 let ok = bundle.extension().is_some_and(|e| e == "app") && !bundle.to_string_lossy().contains("/AppTranslocation/");
@@ -816,12 +851,12 @@ fn encoded_command(script: &str) -> String {
 mod tests {
     use super::*;
 
-    const FEED_URL: &str = "https://github.com/FACTHORYAI/page/releases/latest/download/latest.json";
+    const FEED_URL: &str = "https://github.com/FACTHORYAI/grid/releases/latest/download/latest.json";
     const SUM: &str = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";
 
     fn feed(name: &str, url: &str) -> Vec<u8> {
         serde_json::json!({
-            "name": "Facthory Page", "version": "0.11.0", "date": "2026-11-01",
+            "name": "Facthory Grid", "version": "0.11.0", "date": "2026-11-01",
             "assets": {"linux-x86_64": {"name": name, "url": url, "sha256": SUM.to_uppercase(), "size": 123}}
         })
         .to_string()
@@ -849,10 +884,10 @@ mod tests {
 
     #[test]
     fn the_feed_gives_this_platforms_file_of_the_same_repository() {
-        let url = "https://github.com/FACTHORYAI/page/releases/download/v0.11.0/facthorypage-0.11.0-linux-x86_64.AppImage";
-        let f = Feed::parse(&feed("facthorypage-0.11.0-linux-x86_64.AppImage", url), FEED_URL, Some("linux-x86_64")).unwrap();
+        let url = "https://github.com/FACTHORYAI/grid/releases/download/v0.11.0/facthorygrid-0.11.0-linux-x86_64.AppImage";
+        let f = Feed::parse(&feed("facthorygrid-0.11.0-linux-x86_64.AppImage", url), FEED_URL, Some("linux-x86_64")).unwrap();
         assert_eq!(f.version, "0.11.0");
-        assert_eq!(f.page, "https://github.com/FACTHORYAI/page/releases/tag/v0.11.0");
+        assert_eq!(f.page, "https://github.com/FACTHORYAI/grid/releases/tag/v0.11.0");
         let asset = f.asset.unwrap();
         assert_eq!((asset.url.as_str(), asset.sha256.as_str(), asset.size), (url, SUM, 123));
         // Another platform: the release page only.
@@ -862,7 +897,7 @@ mod tests {
     #[test]
     fn the_feed_never_points_elsewhere_or_outside_the_downloads_folder() {
         let parse = |name: &str, url: &str| Feed::parse(&feed(name, url), FEED_URL, Some("linux-x86_64")).unwrap().asset;
-        let base = "https://github.com/FACTHORYAI/page/releases/download/v0.11.0/";
+        let base = "https://github.com/FACTHORYAI/grid/releases/download/v0.11.0/";
         assert_eq!(parse("a.AppImage", "https://example.com/releases/download/v0.11.0/a.AppImage"), None);
         assert_eq!(parse("a.AppImage", "https://github.com/someone/page/releases/download/v0.11.0/a.AppImage"), None);
         assert_eq!(parse("a.AppImage", &format!("{base}b.AppImage")), None);
@@ -871,17 +906,17 @@ mod tests {
         }
         assert!(Feed::parse(b"{}", FEED_URL, None).is_err());
         assert!(Feed::parse(b"not json", FEED_URL, None).is_err());
-        assert!(Feed::parse(&feed("a", "b"), "http://github.com/FACTHORYAI/page/releases/latest/download/latest.json", None).is_err());
+        assert!(Feed::parse(&feed("a", "b"), "http://github.com/FACTHORYAI/grid/releases/latest/download/latest.json", None).is_err());
     }
 
     #[test]
     fn saved_state_round_trips_and_spaces_the_checks() {
         let dir = temp("saved");
-        assert_eq!(Saved::load(&dir), Saved { enabled: true, last_check: 0, skip: None });
+        assert_eq!(Saved::load(&dir), Saved { enabled: true, last_check: 0, skip: None, bucket: None });
         Saved::update(&dir, |s| s.last_check = 1_000_000);
         Saved::update(&dir, |s| s.skip = Some("0.11.0".into()));
         let saved = Saved::load(&dir);
-        assert_eq!(saved, Saved { enabled: true, last_check: 1_000_000, skip: Some("0.11.0".into()) });
+        assert_eq!(saved, Saved { enabled: true, last_check: 1_000_000, skip: Some("0.11.0".into()), bucket: None });
         assert_eq!(saved.wait(1_000_000), INTERVAL);
         assert_eq!(saved.wait(1_000_000 + INTERVAL - 5), 5);
         assert_eq!(saved.wait(1_000_000 + 2 * INTERVAL), 0);
@@ -890,7 +925,40 @@ mod tests {
         std::fs::write(dir.join("update.json"), r#"{"enabled": false}"#).unwrap();
         assert!(!Saved::load(&dir).enabled);
         std::fs::write(dir.join("update.json"), "garbage").unwrap();
-        assert_eq!(Saved::load(&dir), Saved { enabled: true, last_check: 0, skip: None });
+        assert_eq!(Saved::load(&dir), Saved { enabled: true, last_check: 0, skip: None, bucket: None });
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn the_feed_says_how_far_the_rollout_reaches() {
+        let with = |rollout: serde_json::Value| {
+            let mut v: serde_json::Value = serde_json::from_slice(&feed("a", "b")).unwrap();
+            v["rollout"] = rollout;
+            Feed::parse(v.to_string().as_bytes(), FEED_URL, None).unwrap().rollout
+        };
+        // A feed from before staged releases offers the update to every copy.
+        assert_eq!(Feed::parse(&feed("a", "b"), FEED_URL, None).unwrap().rollout, 100);
+        assert_eq!(with(serde_json::json!(25)), 25);
+        assert_eq!(with(serde_json::json!(0)), 0);
+        assert_eq!(with(serde_json::json!(250)), 100);
+        // Anything but a whole number holds the update back.
+        for odd in [serde_json::json!(-5), serde_json::json!(12.5), serde_json::json!("50"), serde_json::Value::Null] {
+            assert_eq!(with(odd.clone()), 0, "{odd}");
+        }
+    }
+
+    #[test]
+    fn a_copy_draws_its_rollout_bucket_once_and_keeps_it() {
+        let dir = temp("bucket");
+        let first = Saved::bucket(&dir);
+        assert!(first < 100);
+        assert_eq!(Saved::load(&dir).bucket, Some(first));
+        Saved::update(&dir, |s| s.last_check = 5);
+        assert_eq!(Saved::bucket(&dir), first);
+        // A bucket out of range is drawn again, never trusted.
+        std::fs::write(dir.join("update.json"), r#"{"bucket": 250}"#).unwrap();
+        assert_eq!(Saved::load(&dir).bucket, None);
+        assert!(Saved::bucket(&dir) < 100);
         let _ = std::fs::remove_dir_all(dir);
     }
 
@@ -966,18 +1034,18 @@ mod tests {
     fn the_msi_upgrades_only_the_copies_it_installed_in_their_own_scope() {
         let pf = [PathBuf::from("/pf"), PathBuf::from("/pf64")];
         let local = Some(Path::new("/users/a/local"));
-        assert_eq!(msi_scope(Path::new("/pf64/Facthory/Facthory Page/facthorypage.exe"), &pf, local), Some(true));
-        assert_eq!(msi_scope(Path::new("/users/a/local/Programs/Facthory/Facthory Page/facthorypage.exe"), &pf, local), Some(false));
+        assert_eq!(msi_scope(Path::new("/pf64/Facthory/Facthory Grid/facthorygrid.exe"), &pf, local), Some(true));
+        assert_eq!(msi_scope(Path::new("/users/a/local/Programs/Facthory/Facthory Grid/facthorygrid.exe"), &pf, local), Some(false));
         // A portable zip, unpacked anywhere else, or beside Programs rather than under it.
-        assert_eq!(msi_scope(Path::new("/users/a/Downloads/facthorypage/facthorypage.exe"), &pf, local), None);
-        assert_eq!(msi_scope(Path::new("/users/a/local/ProgramsOld/facthorypage.exe"), &pf, local), None);
+        assert_eq!(msi_scope(Path::new("/users/a/Downloads/facthorygrid/facthorygrid.exe"), &pf, local), None);
+        assert_eq!(msi_scope(Path::new("/users/a/local/ProgramsOld/facthorygrid.exe"), &pf, local), None);
         assert_eq!(msi_scope(Path::new("/users/a/local/Programs/x.exe"), &pf, None), None);
     }
 
     #[test]
     fn the_installers_record_is_read_from_reg_query() {
-        let out = "\r\nHKEY_CURRENT_USER\\Software\\Facthory Page\r\n    InstallDir    REG_SZ    C:\\Users\\a\\AppData\\Local\\Programs\\Facthory\\Facthory Page\\\r\n\r\n";
-        assert_eq!(reg_value(out, "InstallDir").as_deref(), Some(r"C:\Users\a\AppData\Local\Programs\Facthory\Facthory Page\"));
+        let out = "\r\nHKEY_CURRENT_USER\\Software\\Facthory Grid\r\n    InstallDir    REG_SZ    C:\\Users\\a\\AppData\\Local\\Programs\\Facthory\\Facthory Grid\\\r\n\r\n";
+        assert_eq!(reg_value(out, "InstallDir").as_deref(), Some(r"C:\Users\a\AppData\Local\Programs\Facthory\Facthory Grid\"));
         assert_eq!(reg_value("    InstallDir    REG_EXPAND_SZ    %LOCALAPPDATA%\\X\r\n", "InstallDir").as_deref(), Some(r"%LOCALAPPDATA%\X"));
         assert_eq!(reg_value("ERROR: The system was unable to find the specified registry key or value.\r\n", "InstallDir"), None);
         assert_eq!(reg_value("    InstallDirOld    REG_SZ    C:\\x\r\n", "InstallDir"), None);
@@ -985,8 +1053,8 @@ mod tests {
 
     #[test]
     fn the_new_version_waits_hidden_beside_the_old() {
-        assert_eq!(staged_beside(Path::new("/Applications/Facthory Page.app")), Path::new("/Applications/.Facthory Page.app.update"));
-        assert_eq!(staged_beside(Path::new("/home/a/Apps/facthorypage.AppImage")), Path::new("/home/a/Apps/.facthorypage.AppImage.update"));
+        assert_eq!(staged_beside(Path::new("/Applications/Facthory Grid.app")), Path::new("/Applications/.Facthory Grid.app.update"));
+        assert_eq!(staged_beside(Path::new("/home/a/Apps/facthorygrid.AppImage")), Path::new("/home/a/Apps/.facthorygrid.AppImage.update"));
     }
 
     #[cfg(unix)]
