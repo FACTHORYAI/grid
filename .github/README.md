@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../facthory/icons/app-icon/hicolor/256x256/apps/com.facthory.grid.png" width="128" height="128" alt="Facthory Grid icon: a sheet of cells with a header row on a slate tile">
+  <img src="../facthory/icons/app-icon/hicolor/256x256/apps/com.facthory.grid.png" width="128" height="128" alt="Facthory Grid icon: a chrome table in the Grid colour">
 </p>
 
 # Facthory Grid
