@@ -14,7 +14,8 @@ Files Facthory adds to upstream's tree, and nothing else:
 | ---- | ---------- |
 | `facthory/brand.toml` | The brand as data: names, app ids, links, publisher, the exact edits, the installer GUID namespace, the mark check |
 | `facthory/rebrand.py` | Applies `brand.toml` to a checkout (`apply`) and checks shipped files for upstream marks (`check`) |
-| `facthory/icons/grid.svg` | The Facthory Grid icon (original artwork) |
+| `facthory/icons/grid.svg` | The Facthory Grid icon: with icons' `table` in its Chrome style (MIT, `LICENSE-withicons.txt`), recoloured |
+| `facthory/icons/grid-macos.svg` | The same icon on a light tile, for the macOS files (macOS frames an icon without a tile) |
 | `facthory/icons/render.py` | Renders the icon set (`facthory/icons/app-icon/`, committed) with resvg, and credits it in `ATTRIBUTION.md` |
 | `facthory/sync.py` | Merges the next upstream release (W3), resolving the two known conflicts below |
 | `facthory/README.md` | This list |
