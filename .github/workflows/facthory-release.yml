@@ -163,6 +163,8 @@ jobs:
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           key: facthory-release-macos
+          # Pull requests read main's cache and keep none, so theirs don't push it out.
+          save-if: ${{ github.ref == 'refs/heads/main' }}
       - name: Apply the Facthory brand
         run: python3 facthory/rebrand.py apply
       - name: Check out craft-fonts
@@ -273,6 +275,8 @@ jobs:
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           key: facthory-release-windows-${{ matrix.arch }}
+          # Pull requests read main's cache and keep none, so theirs don't push it out.
+          save-if: ${{ github.ref == 'refs/heads/main' }}
       - name: Apply the Facthory brand
         shell: bash
         run: python facthory/rebrand.py apply
@@ -367,6 +371,8 @@ jobs:
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           key: facthory-release-linux-${{ matrix.arch }}
+          # Pull requests read main's cache and keep none, so theirs don't push it out.
+          save-if: ${{ github.ref == 'refs/heads/main' }}
       - name: Apply the Facthory brand
         run: python3 facthory/rebrand.py apply
       - name: Check out craft-fonts
