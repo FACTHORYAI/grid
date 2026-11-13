@@ -4,22 +4,34 @@
 | Facthory asset | Author | Source | Licence |
 |---|---|---|---|
 | `facthory/icons/grid.svg` | with icons contributors; recoloured by Bandpey GmbH | `table` in with icons' Chrome style (https://github.com/withevergrow/withicons at 996cc78), recoloured to the Grid colours | MIT |
-| `facthory/icons/grid-macos.svg` | with icons contributors; recoloured by Bandpey GmbH | `table` in with icons' Chrome style (https://github.com/withevergrow/withicons at 996cc78), recoloured to the Grid colours; on a light tile for macOS by Bandpey GmbH | MIT |
-| `facthory/icons/app-icon/facthorygrid-1024.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/grid-macos.svg` | with icons contributors; recoloured by Bandpey GmbH | `facthory/icons/grid.svg` scaled and placed on Apple's grid by `facthory/icons/fit.py`; the glyph itself is unchanged | MIT |
+| `facthory/icons/grid-flat.svg` | with icons contributors; recoloured by Bandpey GmbH | `facthory/icons/grid.svg` scaled and placed for Windows and Linux by `facthory/icons/fit.py`; the glyph itself is unchanged | MIT |
+| `facthory/icons/app-icon/facthorygrid-1024.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/facthorygrid-logo-dark.png` | Bandpey GmbH | rendered from `facthory/icons/brand/mark-mono.svg`, the Facthory mark, by `facthory/icons/render.py` (drawn in the About box) | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `assets/app-icon/facthorygrid-logo-dark.png` | Bandpey GmbH | the branded tree's copy of `facthory/icons/app-icon/facthorygrid-logo-dark.png` | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `facthory/icons/app-icon/facthorygrid-logo-light.png` | Bandpey GmbH | rendered from `facthory/icons/brand/mark.svg`, the Facthory mark, by `facthory/icons/render.py` (drawn in the About box) | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `assets/app-icon/facthorygrid-logo-light.png` | Bandpey GmbH | the branded tree's copy of `facthory/icons/app-icon/facthorygrid-logo-light.png` | Facthory trademark, all rights reserved: not open source; usable unmodified only |
 | `facthory/icons/app-icon/facthorygrid-macos-512.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-macos.svg` by `facthory/icons/render.py` | MIT |
 | `facthory/icons/app-icon/facthorygrid.icns` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-macos.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/facthorygrid.ico` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/facthorygrid.svg` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/128x128/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/16x16/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/24x24/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/256x256/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/32x32/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/48x48/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/512x512/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/64x64/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
-| `facthory/icons/app-icon/hicolor/scalable/apps/com.facthory.grid.svg` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/facthorygrid.ico` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/facthorygrid.svg` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/128x128/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/16x16/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/24x24/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/256x256/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/32x32/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/48x48/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/512x512/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/64x64/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/hicolor/scalable/apps/com.facthory.grid.svg` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
 | `facthory/dmg/background.svg` | @XusBadia (GridCraft contributors); recoloured and retitled by Bandpey GmbH | derived from GridCraft's `packaging/macos/dmg/background.svg`; title outlined from Inter SemiBold (OFL-1.1) | MIT OR Apache-2.0 |
+| `facthory/icons/brand/mark.svg` | Bandpey GmbH | Facthory's logo (the mark, for light grounds), copied unmodified from the Facthory Design System | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `facthory/icons/brand/mark-mono.svg` | Bandpey GmbH | Facthory's logo (the mark in white and greys, for dark grounds), copied unmodified from the Facthory Design System | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `facthory/icons/brand/mark.png` | Bandpey GmbH | Facthory's logo (the mark, 960 x 1016 pixels), copied unmodified from the Facthory Design System | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `facthory/icons/brand/word-mark.svg` | Bandpey GmbH | Facthory's logo (the mark beside the name), copied unmodified from the Facthory Design System | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `facthory/icons/brand/word-mark-only.svg` | Bandpey GmbH | Facthory's logo (the lettering alone), copied unmodified from the Facthory Design System | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `facthory/icons/brand/word-mark-only-mono.svg` | Bandpey GmbH | Facthory's logo (the lettering alone, for dark grounds), copied unmodified from the Facthory Design System | Facthory trademark, all rights reserved: not open source; usable unmodified only |
+| `facthory/icons/proof/grid.png` | Bandpey GmbH | contact sheet of the icon candidates beside reference shapes, drawn by `facthory/icons/proof.py`; contains Facthory's mark | MIT OR Apache-2.0, except Facthory's mark in it: trademark of Bandpey GmbH |
 
 The app icon's licence (MIT), from `facthory/icons/LICENSE-withicons.txt`:
 
@@ -46,6 +58,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+Facthory's marks (`facthory/icons/brand/`, and the two renders of them in `app-icon/` that the About box draws) are the brand of Bandpey GmbH, copied unmodified from the Facthory Design System. They are not open source and not covered by this project's MIT OR Apache-2.0 licence: they may be used unmodified only, to name Facthory's own builds, and a logo is never recoloured, stretched, cropped or redrawn. They are not in the app icons.
 <!-- facthory:end -->
 
 Every non-code asset in this repository (images, icons, fonts, example files, presets) is listed here with its author, source and licence. `cargo xtask assets` (part of `cargo xtask ci`) fails if an asset file is missing from this table.
@@ -60,15 +74,16 @@ Generated-in-code art is original and has no file to list: the UI icon set (`cra
 | `epaint_default_fonts::HACK_REGULAR` (dependency font input) | Source Foundry Authors (Hack; DejaVu and Bitstream Vera foundations) | [egui 6d518fc](https://github.com/storytold/egui/tree/6d518fc799681571963842f95b55a6b68431b15a/crates/epaint_default_fonts/fonts), [Hack](https://github.com/source-foundry/Hack) | MIT + Bitstream Vera License (full upstream texts in `NOTICE`) | Hack-Regular.ttf is egui's bundled monospace face and GridCraft's last-resort symbol fallback. Dependency asset unmodified here, no font file copied into this repository. |
 | `epaint_default_fonts::NOTO_EMOJI_REGULAR` (dependency font input) | The Noto Project Authors | [egui 6d518fc](https://github.com/storytold/egui/tree/6d518fc799681571963842f95b55a6b68431b15a/crates/epaint_default_fonts/fonts), [Noto Emoji](https://fonts.google.com/noto/specimen/Noto+Emoji) | SIL Open Font License 1.1 (full upstream text in `NOTICE`) | NotoEmoji-Regular.ttf is enabled by egui's `monochrome_emoji_fonts` feature and used as the monochrome emoji fallback. Dependency asset unmodified here, no font file copied into this repository. |
 | `epaint_default_fonts::UBUNTU_LIGHT` (dependency font input) | Canonical Ltd. and the Ubuntu Font Family authors | [egui 6d518fc](https://github.com/storytold/egui/tree/6d518fc799681571963842f95b55a6b68431b15a/crates/epaint_default_fonts/fonts), [Ubuntu font](https://design.ubuntu.com/font) | Ubuntu Font Licence 1.0 (full upstream text in `NOTICE`) | Ubuntu-Light.ttf is egui's default proportional face. Dependency asset unmodified here, no font file copied into this repository. |
-| `docs/brand/artcraft-logo.svg` | ArtCraft Team | craftrules `assets/brand/` | ArtCraft brand terms (`docs/brand/LICENSE-brand.txt`) | Trademark, not open source |
-| `docs/brand/artcraft-logo.png` | ArtCraft Team | craftrules `assets/brand/` | ArtCraft brand terms | Trademark |
-| `docs/brand/artcraft-logo-white.svg` | ArtCraft Team | craftrules `assets/brand/` | ArtCraft brand terms | Trademark |
-| `docs/brand/artcraft-logo-white.png` | ArtCraft Team | craftrules `assets/brand/` | ArtCraft brand terms | Trademark |
-| `docs/brand/artcraft-mark.svg` | ArtCraft Team | craftrules `assets/brand/` | ArtCraft brand terms | Trademark |
-| `docs/brand/artcraft-mark.png` | ArtCraft Team | craftrules `assets/brand/` | ArtCraft brand terms | Trademark |
-| `docs/brand/artcraft-mark-black.svg` | ArtCraft Team | craftrules `assets/brand/` | ArtCraft brand terms | Trademark |
-| `docs/brand/artcraft-mark-black.png` | ArtCraft Team | craftrules `assets/brand/` | ArtCraft brand terms | Trademark |
-| `docs/brand/LICENSE-brand.txt` | (licence text) | craftrules | — | |
+| Regional format data in `crates/core/src/region.rs` (data, no file of its own) | Unicode, Inc. (Unicode CLDR) | [cldr-json](https://github.com/unicode-org/cldr-json) (`cldr-numbers-full`, `cldr-dates-full`) and ICU's CLDR 48 data | Unicode License v3 (`Unicode-3.0`; full text in `NOTICE`) | Separators, month and weekday names, AM/PM words, currency symbols and date order of the built-in regions. No CLDR file is copied into this repository. |
+| `docs/brand/artcraft-logo.svg` | ArtCraft Team | ArtCraft brand kit | ArtCraft brand terms (`docs/brand/LICENSE-brand.txt`) | Trademark, not open source |
+| `docs/brand/artcraft-logo.png` | ArtCraft Team | ArtCraft brand kit | ArtCraft brand terms | Trademark |
+| `docs/brand/artcraft-logo-white.svg` | ArtCraft Team | ArtCraft brand kit | ArtCraft brand terms | Trademark |
+| `docs/brand/artcraft-logo-white.png` | ArtCraft Team | ArtCraft brand kit | ArtCraft brand terms | Trademark |
+| `docs/brand/artcraft-mark.svg` | ArtCraft Team | ArtCraft brand kit | ArtCraft brand terms | Trademark |
+| `docs/brand/artcraft-mark.png` | ArtCraft Team | ArtCraft brand kit | ArtCraft brand terms | Trademark |
+| `docs/brand/artcraft-mark-black.svg` | ArtCraft Team | ArtCraft brand kit | ArtCraft brand terms | Trademark |
+| `docs/brand/artcraft-mark-black.png` | ArtCraft Team | ArtCraft brand kit | ArtCraft brand terms | Trademark |
+| `docs/brand/LICENSE-brand.txt` | (licence text) | project | — | |
 | `assets/app-icon/gridcraft.svg` | GridCraft contributors | original (hand-written SVG; `packaging/icons.sh`) | MIT OR Apache-2.0 (`assets/app-icon/LICENSE.txt`) | PLACEHOLDER app icon (ledger page); replaced by the owner's creature art later |
 | `packaging/macos/dmg/background.svg` | @XusBadia | original (hand-written SVG, derived from the GridCraft app icon `assets/app-icon/gridcraft.svg`, referenced via `<image>`, not copied; text is outlined glyph paths; `packaging/macos/dmg/generate.py` renders it to `background.tiff`) | MIT OR Apache-2.0 (`LICENSE-MIT`, `LICENSE-APACHE`) | GridCraft macOS DMG window background for the Finder window; added 2026-10-08 |
 | `packaging/macos/dmg/background.tiff` | @XusBadia | Rendered from `packaging/macos/dmg/background.svg` by `packaging/macos/dmg/generate.py` | MIT OR Apache-2.0 (`LICENSE-MIT`, `LICENSE-APACHE`) | 1x + 2x HiDPI TIFF for the macOS DMG window; includes the app icon (see its row) and LittleCMS's built-in sRGB profile ("No copyright, use freely") |
@@ -94,3 +109,5 @@ Generated-in-code art is original and has no file to list: the UI icon set (`cra
 | `docs/images/pivot.png` | GridCraft contributors | screenshot of GridCraft rendered offscreen (`crates/ui-egui/examples/snapshot.rs`) showing an original sample workbook | MIT OR Apache-2.0 | README screenshot; no third-party content |
 | `docs/images/format-chart.png` | GridCraft contributors | screenshot of GridCraft rendered offscreen (`crates/ui-egui/examples/snapshot.rs`) showing an original sample workbook | MIT OR Apache-2.0 | README screenshot; no third-party content |
 | `docs/images/page-break.png` | GridCraft contributors | screenshot of GridCraft rendered offscreen (`crates/ui-egui/examples/snapshot.rs`) showing an original sample workbook | MIT OR Apache-2.0 | README screenshot; no third-party content |
+| Core 14 AFM metric numbers in `crates/pdf/src/symbol.rs` (Symbol: character codes and advance widths) and `crates/pdf/src/metrics.rs` (Helvetica, Times and Courier advance widths); no font file | Adobe Systems Incorporated | Adobe's Core 14 AFM font metrics files (`Symbol.afm` 001.008 and the Helvetica, Times and Courier AFMs) | Adobe's Core 14 metrics notice: the files may be used, copied and distributed for any purpose and without charge, provided the notice is kept (quoted in `crates/pdf/src/metrics.rs`) | Numbers only, typed in from the public metrics. PDF export embeds no font: Symbol and the Times faces are base-14 fonts every PDF reader supplies, and text outside WinAnsiEncoding is set in a predefined, non-embedded Adobe-GB1 CID font |
+| Unicode values of the Symbol encoding in `crates/pdf/src/symbol.rs` (the code-to-character map; numbers only, no file copied) | Unicode, Inc. | `symbol.txt`, "Adobe Symbol Encoding to Unicode", table version 1.0 (2011-07-12), at unicode.org/Public/MAPPINGS/VENDORS/ADOBE/ | Unicode, Inc.'s notice in the file: "Unicode, Inc. hereby grants the right to freely use the information supplied in this file in the creation of products supporting the Unicode Standard, and to make copies of this file in any form for internal or external distribution as long as this notice remains attached." The file is provided as-is, without warranties | Separate from Adobe's Core 14 notice (previous row), which covers the character codes and widths; the Unicode values come from this table |
