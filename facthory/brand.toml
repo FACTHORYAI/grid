@@ -199,6 +199,64 @@ find = "${GITHUB_ACTOR:-storytold}"
 replace = "${GITHUB_ACTOR:-facthory}"
 count = 1
 
+# The disk image never ships a file with a Finder attribute (facthory/dmg/image.sh says why):
+# attributes cleared before the app is signed and on the staged copy, the image built with
+# `create -srcfolder`, and the app inside the finished image verified before it is notarized.
+[[rule]]
+why = "macOS: no extended attribute (Finder information, a resource fork) may be on the bundle when it is signed: codesign --strict rejects it"
+files = "packaging/macos/package.sh"
+find = '''
+# Sign inside-out: nested code first, then the bundle itself (no --deep on the final signature).
+'''
+replace = '''
+# codesign --strict rejects extended attributes such as com.apple.FinderInfo or a resource fork;
+# a file copied in can carry them. Clear them before signing.
+xattr -cr "$APP"
+# Sign inside-out: nested code first, then the bundle itself (no --deep on the final signature).
+'''
+count = 1
+
+[[rule]]
+why = "macOS: the staged copy of the app carries no extended attribute or quarantine flag into the image"
+files = "packaging/macos/package.sh"
+find = '''
+ditto "$APP" "$STAGE/GridCraft.app"
+'''
+replace = '''
+ditto --noextattr --noqtn "$APP" "$STAGE/GridCraft.app"
+xattr -cr "$STAGE/GridCraft.app"
+'''
+count = 1
+
+[[rule]]
+why = "macOS: the image is built with create -srcfolder, which copies the staged files as they are (makehybrid -hfs gave every file a FinderInfo), and the app inside it is verified, strictly, before the image is notarized"
+files = "packaging/macos/package.sh"
+find = '''
+rm -f "$DMG" "$WORK/raw.dmg"
+# makehybrid + convert builds the image without attaching a device, unlike `create -srcfolder`,
+# which is flaky on CI runners ("Resource busy") and hangs in sandboxed sessions.
+# The volume name has no version: .DS_Store finds the background through an alias that includes it.
+hdiutil makehybrid -hfs -hfs-volume-name "GridCraft" -hfs-openfolder "$STAGE" -o "$WORK/raw.dmg" "$STAGE"
+hdiutil convert "$WORK/raw.dmg" -format UDZO -imagekey zlib-level=9 -o "$DMG"
+rm -f "$WORK/raw.dmg"
+sign "$DMG"
+codesign --verify --strict --verbose=2 "$DMG"
+'''
+replace = '''
+# Facthory's image step (packaging/macos/facthory-image.sh, from facthory/dmg/image.sh).
+# shellcheck source=facthory-image.sh
+. "$HERE/facthory-image.sh"
+build_dmg_image "$STAGE" "GridCraft" "$DMG"
+sign "$DMG"
+codesign --verify --strict --verbose=2 "$DMG"
+verify_dmg_app "$DMG" "GridCraft.app" "$WORK/dmg-check" "$NOTARIZE"
+'''
+count = 1
+
+[[copy]]
+from = "dmg/image.sh"
+to = "packaging/macos/facthory-image.sh"
+
 # Notarization with the App Store Connect API key of Bandpey GmbH's other releases, not an Apple
 # account's app-specific password: package.sh reads the key's file, id and issuer (the release
 # workflow writes the .p8 under $RUNNER_TEMP, mode 600, and removes it again).

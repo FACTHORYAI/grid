@@ -102,13 +102,15 @@ and runs upstream's packaging scripts, which sign with the secrets of the enviro
 | Windows | `facthorygrid-<v>-windows-x64.msi` and `-arm64.msi`, portable zips | Authenticode |
 | Linux | AppImage (with `.zsync`), `.deb`, `.rpm`, `.tar.gz`; x86_64 and aarch64 | SHA-256 sums |
 
+The macOS disk image never ships a file with a Finder attribute. Upstream built it with `hdiutil makehybrid -hfs`, which gives every file and folder in the image a `com.apple.FinderInfo` attribute; the app's seal held in the build but `codesign --verify --deep --strict` failed on the app inside the mounted image and on any copy made from it, and only a run that publishes checked that. Now `facthory/dmg/image.sh` (brand rules put it at `packaging/macos/facthory-image.sh`) builds the image with `hdiutil create -srcfolder`, which copies the staged files as they are, after attributes are cleared from the bundle before it is signed and from the staged copy; then it mounts the finished image read-only and runs the strict, deep signature check on the app inside it and on a `ditto` copy of it, which fails the build job before the image is notarized. `facthory/test_dmg_image.py` tests it with stubbed macOS tools. Three brand rules on `packaging/macos/package.sh` apply it (the attributes, the staged copy, the image and its check); WordCraft's upstream script already does the same, so drop them at the sync that brings it to the others.
+
 In a run that signs, a `preflight` job first checks every secret of the environment (`facthory/signing_preflight.py`: the certificate opens and names Bandpey GmbH's team, the API key parses, the Azure values name the signing account) and every build waits for it.
 
 Then `facthory/install_check.py` installs each platform's files on a machine of that platform,
 as a user would: the DMG's app and the CLI on macOS; the MSI for each architecture on Windows,
 over the newest release's MSI, which it must upgrade into one installed copy, then uninstalled;
 the AppImage, and the `.deb` and `.rpm` (over the newest release's) on Linux. Each program must
-report the new version, and a release's signatures must hold (Developer ID and notarization on
+report the new version, and the signatures of a run that signs (a release, or the `sign` rehearsal) must hold (Developer ID and notarization on
 macOS, Authenticode by Bandpey GmbH on Windows). Only when every platform passes does the run
 publish the GitHub release `v<version>`, which also creates the tag, with `SHA256SUMS` and
 `latest.json`, then call `facthory-packages.yml`. `facthory/downloads.sh` then serves the
