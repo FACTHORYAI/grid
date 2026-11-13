@@ -23,6 +23,9 @@ pub(crate) fn start(app: &mut SheetApp, manual: bool) {
 
 pub(crate) fn tick(_app: &mut SheetApp, _ctx: &egui::Context) {}
 
+/// Upstream starts the helper of a ready update here; `facthory_update::on_exit` installs ours.
+pub(crate) fn start_pending_update(_app: &mut SheetApp) {}
+
 pub(crate) fn show(app: &mut SheetApp, _ctx: &egui::Context) {
     // The native app opens pages through its services: its egui has no browser integration.
     if std::mem::take(&mut app.updates_rt.open_releases)
