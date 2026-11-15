@@ -6,6 +6,7 @@
 | `facthory/icons/grid.svg` | with icons contributors; recoloured by Bandpey GmbH | `table` in with icons' Chrome style (https://github.com/withevergrow/withicons at 996cc78), recoloured to the Grid colours | MIT |
 | `facthory/icons/grid-macos.svg` | with icons contributors; recoloured by Bandpey GmbH | `facthory/icons/grid.svg` scaled and placed on Apple's grid by `facthory/icons/fit.py`; the glyph itself is unchanged | MIT |
 | `facthory/icons/grid-flat.svg` | with icons contributors; recoloured by Bandpey GmbH | `facthory/icons/grid.svg` scaled and placed for Windows and Linux by `facthory/icons/fit.py`; the glyph itself is unchanged | MIT |
+| `facthory/icons/grid-layer.svg` | with icons contributors; recoloured by Bandpey GmbH | `facthory/icons/grid.svg` scaled and placed as the layer of the macOS 26 icon by `facthory/icons/fit.py`; the glyph itself is unchanged | MIT |
 | `facthory/icons/app-icon/facthorygrid-1024.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
 | `facthory/icons/app-icon/facthorygrid-logo-dark.png` | Bandpey GmbH | rendered from `facthory/icons/brand/mark-mono.svg`, the Facthory mark, by `facthory/icons/render.py` (drawn in the About box) | Facthory trademark, all rights reserved: not open source; usable unmodified only |
 | `assets/app-icon/facthorygrid-logo-dark.png` | Bandpey GmbH | the branded tree's copy of `facthory/icons/app-icon/facthorygrid-logo-dark.png` | Facthory trademark, all rights reserved: not open source; usable unmodified only |
@@ -14,6 +15,10 @@
 | `facthory/icons/app-icon/facthorygrid-macos-512.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-macos.svg` by `facthory/icons/render.py` | MIT |
 | `facthory/icons/app-icon/facthorygrid.icns` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-macos.svg` by `facthory/icons/render.py` | MIT |
 | `facthory/icons/app-icon/facthorygrid.ico` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
+| `facthory/icons/app-icon/facthorygrid.icon/Assets/facthorygrid-layer.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-layer.svg` by `facthory/icons/render.py` | MIT |
+| `assets/app-icon/facthorygrid.icon/Assets/facthorygrid-layer.png` | with icons contributors; recoloured by Bandpey GmbH | the branded tree's copy of `facthory/icons/app-icon/facthorygrid.icon/Assets/facthorygrid-layer.png` | MIT |
+| `facthory/icons/app-icon/facthorygrid.icon/icon.json` | with icons contributors; recoloured by Bandpey GmbH | written by `facthory/icons/render.py` from `facthory/icons/fit.py`'s tile colours | MIT |
+| `assets/app-icon/facthorygrid.icon/icon.json` | with icons contributors; recoloured by Bandpey GmbH | the branded tree's copy of `facthory/icons/app-icon/facthorygrid.icon/icon.json` | MIT |
 | `facthory/icons/app-icon/facthorygrid.svg` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
 | `facthory/icons/app-icon/hicolor/128x128/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
 | `facthory/icons/app-icon/hicolor/16x16/apps/com.facthory.grid.png` | with icons contributors; recoloured by Bandpey GmbH | rendered from `facthory/icons/grid-flat.svg` by `facthory/icons/render.py` | MIT |
@@ -32,6 +37,7 @@
 | `facthory/icons/brand/word-mark-only.svg` | Bandpey GmbH | Facthory's logo (the lettering alone), copied unmodified from the Facthory Design System | Facthory trademark, all rights reserved: not open source; usable unmodified only |
 | `facthory/icons/brand/word-mark-only-mono.svg` | Bandpey GmbH | Facthory's logo (the lettering alone, for dark grounds), copied unmodified from the Facthory Design System | Facthory trademark, all rights reserved: not open source; usable unmodified only |
 | `facthory/icons/proof/grid.png` | Bandpey GmbH | contact sheet of the icon candidates beside reference shapes, drawn by `facthory/icons/proof.py`; contains Facthory's mark | MIT OR Apache-2.0, except Facthory's mark in it: trademark of Bandpey GmbH |
+| `facthory/icons/proof/grid-appearances.png` | Bandpey GmbH | contact sheet of the appearance-aware macOS icon (light, dark, and simulations of the system's tinted and clear styles) at the sizes the system shows, drawn by `facthory/icons/proof.py --appearances` from `app-icon/facthorygrid.icon` | MIT |
 
 The app icon's licence (MIT), from `facthory/icons/LICENSE-withicons.txt`:
 
