@@ -207,7 +207,7 @@ elif tool == "actool":
     open(args[args.index("--output-partial-info-plist") + 1], "wb").write(b"")
     print("actool ok")
 elif tool == "assetutil":
-    name = "facthorypage"
+    name = %r
     print(json.dumps([{"AssetType": "IconImageStack", "Name": name, "Appearance": a} for a in %r]))
 else:
     sys.exit("unexpected " + tool)
@@ -234,7 +234,7 @@ class Build(unittest.TestCase):
         (folder / (f"Xcode_{appicon.XCODE}.app" if xcode else "Xcode_16.4.app")).mkdir(parents=True)
         bin_ = tmp / "bin"
         bin_.mkdir()
-        for name, text in (("xcrun", XCRUN % appearances), ("plutil", PLUTIL)):
+        for name, text in (("xcrun", XCRUN % (ICON.stem, appearances)), ("plutil", PLUTIL)):
             (bin_ / name).write_text(text)
             (bin_ / name).chmod(stat.S_IRWXU)
         app = bundle(tmp, name="stale")
@@ -255,7 +255,7 @@ class Build(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             app = self.run_build(Path(tmp), [AQUA, DARK])
             plist = plistlib.loads((app / "Contents" / "Info.plist").read_bytes())
-            self.assertEqual(plist["CFBundleIconName"], "facthorypage")
+            self.assertEqual(plist["CFBundleIconName"], ICON.stem)
             self.assertEqual(plist["CFBundleIconFile"], "App")
             self.assertEqual((app / "Contents" / "Resources" / "Assets.car").read_bytes(), b"car")
             self.assertTrue((app / "Contents" / "Resources" / "App.icns").is_file())
@@ -275,7 +275,7 @@ class Build(unittest.TestCase):
             (folder / f"Xcode_{appicon.XCODE}.app").mkdir(parents=True)
             bin_ = tmp_ / "bin"
             bin_.mkdir()
-            for name, text in (("xcrun", XCRUN % [AQUA, DARK]), ("plutil", PLUTIL)):
+            for name, text in (("xcrun", XCRUN % (ICON.stem, [AQUA, DARK])), ("plutil", PLUTIL)):
                 (bin_ / name).write_text(text)
                 (bin_ / name).chmod(stat.S_IRWXU)
             old = os.environ["PATH"]
@@ -287,7 +287,7 @@ class Build(unittest.TestCase):
             finally:
                 os.environ["PATH"] = old
             plist = plistlib.loads((keep / "Probe.app" / "Contents" / "Info.plist").read_bytes())
-            self.assertEqual((plist["CFBundleIconName"], plist["CFBundleIconFile"]), ("facthorypage", "stub"))
+            self.assertEqual((plist["CFBundleIconName"], plist["CFBundleIconFile"]), (ICON.stem, "stub"))
             self.assertTrue((keep / "Probe.app" / "Contents" / "Resources" / "Assets.car").is_file())
 
     def test_build_fails_without_the_pinned_xcode(self) -> None:
